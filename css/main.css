@@ -1,0 +1,22 @@
+html, body {
+  height: 100%; }
+
+main.chat-column, div.channels-column, div.users-column {
+  display: block;
+  box-sizing: border-box;
+  float: left;
+  padding: 10px;
+  height: 100%; }
+
+main.chat-column {
+  width: 60%; }
+
+div.channels-column {
+  width: 20%;
+  background-color: #eee; }
+
+div.users-column {
+  width: 20%;
+  background-color: #eee; }
+
+/*# sourceMappingURL=main.css.map */
