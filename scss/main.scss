@@ -1,25 +1,87 @@
+$accent: #493655;
+$topbarBackground: #ddd;
+$userlistBackground: #f5f5f5;
+$lightText: #eee;
+
+/* Base styles */
+
 html, body {
+  height: 100%;
+  font-weight: lighter;
+  font-size: 1em;
+  line-height: 1.3em;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sections */
+
+main.chat-column, section.channels-column {
+  display: block;
+  box-sizing: border-box;
+  padding-top: 40px;
+  float: left;
   height: 100%;
 }
 
-main.chat-column, div.channels-column, div.users-column {
-  display: block;
-  box-sizing: border-box;
-  float: left;
-  padding: 10px;
-  height: 100%;
+section.menu-bar {
+  position: absolute;
+  width: 100%;
+  background-color: $topbarBackground;
+  height: 40px;
 }
 
 main.chat-column {
-  width: 60%;
+  width: 80%;
 }
 
-div.channels-column {
+section.channels-column {
   width: 20%;
-  background-color: #eee;
+  background-color: $accent;
+  color: $lightText;
+
+  ul {
+    padding: 20px 0;
+
+    li {
+      padding: 5px 20px;
+
+      a {
+        color: $lightText;
+      }
+    }
+
+    li:hover {
+      background-color: darken($accent, 5%);
+    }
+  }
 }
 
-div.users-column {
-  width: 20%;
-  background-color: #eee;
+section.users-column {
+  float: right;
+  box-sizing: border-box;
+  width: 25%;
+  background-color: $userlistBackground;
+  height: 100%;
+  overflow: scroll;
+
+  ul {
+    padding: 20px 0;
+
+    li {
+      padding: 0 20px;
+
+      a {
+        color: $accent;
+      }
+    }
+  }
 }
