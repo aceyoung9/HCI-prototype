@@ -1,7 +1,14 @@
 var express = require('express');
+var $ = require('jquery');
+var _ = require('underscore');
 var app = express();
 
-var channels = {channels: ["##ccis", "#nuhacks"]};
+var data = {
+  channels: [
+  {name: "##ccis"},
+  {name: "#nuhacks"}
+  ]
+};
 
 app.use(express.static('public'));
 
@@ -10,7 +17,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/channels', function(req, res) {
-  res.json(channels)
+  res.json(_.pluck(data.channels, 'name'));
 });
 
 app.listen(process.env.PORT || 4730);
