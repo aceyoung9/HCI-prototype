@@ -10,6 +10,7 @@
     <section class="menu-bar">
     </section>
     <section class="channels-column">
+      <header>Channels</header>
       <ul>
         <script id="channels-template" type="text/x-handlebars-template">
           {{#each channels}}
@@ -17,6 +18,9 @@
           {{/each}}
         </script>
       </ul>
+      <section class="buttons">
+        <button type="button" title="Add a channel">+</button>
+      </section>
     </section>
     <main class="chat-column">
       <section class="users-column">

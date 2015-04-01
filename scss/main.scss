@@ -7,6 +7,7 @@ $lightText: #eee;
 
 html, body {
   height: 100%;
+  width: 100%;
   font-weight: lighter;
   font-size: 1em;
   line-height: 1.3em;
@@ -32,6 +33,10 @@ main.chat-column, section.channels-column {
   height: 100%;
 }
 
+main.chat-column {
+  width: 85%;
+}
+
 section.menu-bar {
   position: absolute;
   width: 100%;
@@ -39,17 +44,36 @@ section.menu-bar {
   height: 40px;
 }
 
-main.chat-column {
-  width: 80%;
-}
-
 section.channels-column {
-  width: 20%;
+  width: 15%;
   background-color: $accent;
-  color: $lightText;
+  color: white;
+
+  header {
+    font-size: 1.4em;
+    padding: 20px 20px 10px 20px;
+  }
+
+  section.buttons {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 15%;
+    background-color: darken($accent, 5%);
+    text-align: center;
+    padding: 10px;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
 
   ul {
-    padding: 20px 0;
+    padding: 0;
 
     li {
       padding: 5px 20px;
@@ -68,10 +92,10 @@ section.channels-column {
 section.users-column {
   float: right;
   box-sizing: border-box;
-  width: 25%;
+  width: 15%;
   background-color: $userlistBackground;
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
 
   ul {
     padding: 20px 0;
