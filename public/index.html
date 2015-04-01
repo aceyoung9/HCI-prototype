@@ -25,9 +25,11 @@
     <main class="chat-column">
       <section class="users-column">
         <ul>
-          <li><a href="">somealumni</a></li>
-          <li><a href="">lauren</a></li>
-          <li><a href="">etc</a></li>
+        <script id="users-template" type="text/x-handlebars-template">
+          {{#each this}}
+            <li><a href="">{{this}}</a></li>
+          {{/each}}
+        </script>
         </ul>
       </section>
     </main>   
