@@ -11,8 +11,11 @@
     </section>
     <section class="channels-column">
       <ul>
-        <li><a href="">##ccis</a></li>
-        <li><a href="">#nuhacks</a></li>
+        <script id="channels-template" type="text/x-handlebars-template">
+          {{#each channels}}
+            <li><a href="">{{this}}</a></li>
+          {{/each}}
+        </script>
       </ul>
     </section>
     <main class="chat-column">
@@ -24,5 +27,8 @@
         </ul>
       </section>
     </main>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
