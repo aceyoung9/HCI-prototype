@@ -49,7 +49,7 @@ main.chat-column {
   div.chat-wrapper {
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 200px;
     bottom: 50px;
     left: 0px;
     overflow-y: auto;
@@ -59,7 +59,7 @@ main.chat-column {
   div.chat {
     display: table;
     box-sizing: border-box;
-    width: 85%;
+    width: 100%;
 
     >header {
       border-bottom: 1px dashed $lightGrey;
@@ -104,8 +104,18 @@ main.chat-column {
     padding: 10px 10px 10px 0;
     height: 50px;
 
-    input {
-      width: 93%;
+    div.input-wrapper {
+      position: absolute;
+      top: 5px;
+      right: 90px;
+      bottom: 10px;
+      left: 0;
+
+      input {
+        height: 100%;
+        width: 100%;
+        padding: 0 10px;
+      }
     }
 
     button {

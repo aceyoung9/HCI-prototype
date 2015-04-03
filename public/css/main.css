@@ -35,7 +35,7 @@ main.chat-column {
   main.chat-column div.chat-wrapper {
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 200px;
     bottom: 50px;
     left: 0px;
     overflow-y: auto;
@@ -43,7 +43,7 @@ main.chat-column {
   main.chat-column div.chat {
     display: table;
     box-sizing: border-box;
-    width: 85%; }
+    width: 100%; }
     main.chat-column div.chat > header {
       border-bottom: 1px dashed #aaa; }
     main.chat-column div.chat div.message {
@@ -73,8 +73,16 @@ main.chat-column {
     background-color: #3c2c45;
     padding: 10px 10px 10px 0;
     height: 50px; }
-    main.chat-column section.input-bar input {
-      width: 93%; }
+    main.chat-column section.input-bar div.input-wrapper {
+      position: absolute;
+      top: 5px;
+      right: 90px;
+      bottom: 10px;
+      left: 0; }
+      main.chat-column section.input-bar div.input-wrapper input {
+        height: 100%;
+        width: 100%;
+        padding: 0 10px; }
     main.chat-column section.input-bar button {
       float: right; }
 
