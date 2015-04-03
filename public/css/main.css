@@ -42,6 +42,8 @@ main.chat-column {
       box-sizing: border-box;
       display: table-row;
       vertical-align: top; }
+      main.chat-column div.chat div.message:hover {
+        background-color: #fafafa; }
       main.chat-column div.chat div.message span.from {
         display: table-cell;
         width: 140px;
@@ -53,8 +55,6 @@ main.chat-column {
         display: table-cell;
         vertical-align: top;
         padding: 5px; }
-    main.chat-column div.chat div.message:hover {
-      background-color: #fafafa; }
   main.chat-column section.input-bar {
     position: absolute;
     display: block;
@@ -111,10 +111,10 @@ section.channels-column {
     padding: 0; }
     section.channels-column ul li {
       padding: 5px 20px; }
+      section.channels-column ul li:hover {
+        background-color: #3c2c45; }
       section.channels-column ul li a {
         color: white; }
-    section.channels-column ul li:hover {
-      background-color: #3c2c45; }
 
 section.users-column {
   float: right;
