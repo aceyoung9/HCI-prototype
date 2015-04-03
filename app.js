@@ -47,21 +47,21 @@ var data = {
     },
     {
       user: "alice",
-      timestamp: moment('02 Apr 2015 10:01:30', 'DD-MM-YYYY HH:mm:ss'),
+      timestamp: moment('02 Apr 2015 10:04:00', 'DD-MM-YYYY HH:mm:ss'),
       type: "message",
-      content: "single-origin coffee PBR cornhole small batch stumptown ennui"
-    },
-    {
-      user: "alice",
-      timestamp: moment('02 Apr 2015 10:02:00', 'DD-MM-YYYY HH:mm:ss'),
-      type: "message",
-      content: "church-key locavore four loko 90's Carles Pitchfork"
+      content: "Portland wayfarers Carles meggings you probably haven't heard of them"
     },
     {
       user: "molly",
-      timestamp: moment('02 Apr 2015 10:03:00', 'DD-MM-YYYY HH:mm:ss'),
+      timestamp: moment('02 Apr 2015 10:10:00', 'DD-MM-YYYY HH:mm:ss'),
       type: "message",
-      content: "pop-up deep v bespoke, master cleanse keffiyeh organic heirloom"
+      content: " irony readymade pop-up master cleanse typewriter migas listicle"
+    },
+    {
+      user: "molly",
+      timestamp: moment('02 Apr 2015 10:10:30', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "crucifix PBR four dollar toast, hoodie chia authentic pug asymmetrical roof party vegan small batch"
     }
     ]
   },

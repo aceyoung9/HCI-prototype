@@ -18,6 +18,7 @@ html, body {
   font-weight: lighter;
   font-size: 1em;
   line-height: 1.3em;
+  background-color: $accent;
 }
 
 a {
@@ -36,17 +37,24 @@ header {
 }
 
 /* Sections */
-
-main.chat-column, section.channels-column {
-  display: block;
-  box-sizing: border-box;
-  padding-top: 40px;
-  float: left;
-  height: 100%;
-}
-
 main.chat-column {
-  width: 85%;
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  bottom: 0px;
+  left: 200px;
+  background-color: white;
+
+  div.chat-wrapper {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 50px;
+    left: 0px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
 
   div.chat {
     display: table;
@@ -90,7 +98,8 @@ main.chat-column {
     display: block;
     box-sizing: border-box;
     bottom: 0;
-    width: 85%;
+    left: 0px;
+    right: 200px;
     background-color: darken($accent, 5%);
     padding: 10px 10px 10px 0;
     height: 50px;
@@ -131,33 +140,10 @@ section.menu-bar {
 }
 
 section.channels-column {
-  width: 15%;
-  background-color: $accent;
+  position: absolute;
+  top: 40px;
+  width: 200px;
   color: white;
-
-  section.buttons {
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    bottom: 0;
-    width: 15%;
-    background-color: darken($accent, 5%);
-    text-align: center;
-    height: 50px;
-    padding: 10px;
-
-    &:hover {
-      background-color: lighten($accent, 10%);
-    }
-
-    button {
-      background-color: transparent;
-      border: 0;
-      font-size: 2em;
-      font-weight: bold;
-      padding: 15px 0;
-    }
-  }
 
   ul {
     padding: 0;
@@ -176,19 +162,44 @@ section.channels-column {
   }
 }
 
+section.channel-buttons {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 200px;
+    background-color: darken($accent, 5%);
+    text-align: center;
+    height: 50px;
+    padding: 12px;
+
+    &:hover {
+      background-color: lighten($accent, 10%);
+    }
+
+    button {
+      background-color: transparent;
+      border: 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+
 section.users-column {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
   box-sizing: border-box;
-  width: 15%;
   background-color: $userlistBackground;
-  height: 100%;
-  overflow: auto;
+  overflow-y: auto;
 
   ul {
-    padding: 20px 0;
+    padding: 0;
 
     li {
-      padding: 0 20px;
+      padding: 0 10px; 
 
       a {
         color: $accent;

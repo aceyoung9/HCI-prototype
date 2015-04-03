@@ -24,26 +24,28 @@
           {{/each}}
         </script>
       </ul>
-      <section class="buttons">
-        <button type="button" title="Add a channel">+</button>
-      </section>
+    </section>
+    <section class="channel-buttons">
+      <button type="button" title="Add a channel">+</button>
     </section>
 
     <main class="chat-column">
-      <script id="chat-template" type="text/x-handlebars-template">
-        <header>{{this.name}}</header>
-        <div class="chat">
-          {{#each activity}}
-            <div class="message">
-              <span class="from">
-                <a href="">{{this.user}}</a>
-                {{{time this.timestamp}}}
-              </span>
-              <span class="text">{{this.content}}</span>
-            </div>
-          {{/each}}
-        </div>
-      </script>
+      <div class="chat-wrapper">
+        <script id="chat-template" type="text/x-handlebars-template">
+          <header>{{this.name}}</header>
+          <div class="chat">
+            {{#each activity}}
+              <div class="message">
+                <span class="from">
+                  <a href="">{{this.user}}</a>
+                  {{{time this.timestamp}}}
+                </span>
+                <span class="text">{{this.content}}</span>
+              </div>
+            {{/each}}
+          </div>
+        </script>
+      </div>
       <section class="input-bar">
         <input type="text" />
         <button type="button">Send</button>
