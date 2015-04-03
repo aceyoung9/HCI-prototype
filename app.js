@@ -1,5 +1,4 @@
 var express = require('express');
-var $ = require('jquery');
 var _ = require('underscore');
 var app = express();
 
@@ -7,7 +6,21 @@ var data = {
   channels: [
   {
     name: "##ccis",
-    users: ["somealumni", "molly", "alice"]
+    users: ["somealumni", "molly", "alice"],
+    activity: [
+    {
+      user: "somealumni",
+      timestamp: Date.parse('02 Apr 2015 10:00:00 EST'),
+      type: "message",
+      content: "Bushwick gentrify fixie, normcore scenester mixtape fingerstache"
+    },
+    {
+      user: "molly",
+      timestamp: Date.parse('02 Apr 2015 10:01:00 EST'),
+      type: "message",
+      content: "3 wolf moon bitters plaid Intelligentsia cold-pressed Neutra sriracha stumptown"
+    }
+    ]
   },
   {
     name: "#nuhacks",
@@ -33,6 +46,15 @@ app.get('/users/:channel', function(req, res) {
     return res.send('No channel "' + req.params.channel + '" found.')
   }
   res.json(channel.users);
+});
+
+app.get('/activity/:channel/all', function(req, res) {
+  var channel = _.findWhere(data.channels, {name: req.params.channel})
+  if (!channel) {
+    res.statusCode = 404;
+    return res.send('No channel "' + req.params.channel + '" found.')
+  }
+  res.json(channel.activity);
 });
 
 app.listen(process.env.PORT || 4730);
