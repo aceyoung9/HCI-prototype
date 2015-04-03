@@ -1,5 +1,6 @@
 var express = require('express');
 var _ = require('underscore');
+var moment = require('moment');
 var app = express();
 
 var data = {
@@ -10,13 +11,13 @@ var data = {
     activity: [
     {
       user: "somealumni",
-      timestamp: Date.parse('02 Apr 2015 10:00:00 EST'),
+      timestamp: moment('02-04-2015 10:00:00', 'DD-MM-YYYY HH:mm:ss'),
       type: "message",
       content: "Bushwick gentrify fixie, normcore scenester mixtape fingerstache"
     },
     {
       user: "molly",
-      timestamp: Date.parse('02 Apr 2015 10:01:00 EST'),
+      timestamp: moment('02 Apr 2015 10:01:00', 'DD-MM-YYYY HH:mm:ss'),
       type: "message",
       content: "3 wolf moon bitters plaid Intelligentsia cold-pressed Neutra sriracha stumptown"
     }
@@ -54,7 +55,7 @@ app.get('/activity/:channel/all', function(req, res) {
     res.statusCode = 404;
     return res.send('No channel "' + req.params.channel + '" found.')
   }
-  res.json(channel.activity);
+  res.json(_.pick(channel, 'name', 'activity'));
 });
 
 app.listen(process.env.PORT || 4730);

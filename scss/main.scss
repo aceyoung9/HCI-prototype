@@ -1,7 +1,7 @@
 $accent: #493655;
 $topbarBackground: #ddd;
 $userlistBackground: #f5f5f5;
-$lightText: #eee;
+$lightGrey: #aaa;
 
 /* Base styles */
 
@@ -23,6 +23,11 @@ ul {
   margin: 0;
 }
 
+header {
+  font-size: 1.4em;
+  padding: 10px;
+}
+
 /* Sections */
 
 main.chat-column, section.channels-column {
@@ -35,6 +40,36 @@ main.chat-column, section.channels-column {
 
 main.chat-column {
   width: 85%;
+
+  div.chat {
+    float: left;
+    box-sizing: border-box;
+    width: 85%;
+
+    >header {
+      border-bottom: 1px dashed $lightGrey;
+    }
+
+    div.message { 
+      width: 100%;
+      clear: both;
+      padding: 10px 0;
+
+      span.from {
+        display: inline-block;
+        width: 140px;
+        float: left;
+
+        time {
+          display: block;
+        }
+
+        span.text {
+          float: left;
+        }
+      }
+    }
+  }
 }
 
 section.menu-bar {
@@ -48,11 +83,6 @@ section.channels-column {
   width: 15%;
   background-color: $accent;
   color: white;
-
-  header {
-    font-size: 1.4em;
-    padding: 20px 20px 10px 20px;
-  }
 
   section.buttons {
     position: absolute;
@@ -79,7 +109,7 @@ section.channels-column {
       padding: 5px 20px;
 
       a {
-        color: $lightText;
+        color: white;
       }
     }
 

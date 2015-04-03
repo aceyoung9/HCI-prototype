@@ -14,6 +14,10 @@ ul {
   padding: 0;
   margin: 0; }
 
+header {
+  font-size: 1.4em;
+  padding: 10px; }
+
 /* Sections */
 main.chat-column, section.channels-column {
   display: block;
@@ -24,6 +28,24 @@ main.chat-column, section.channels-column {
 
 main.chat-column {
   width: 85%; }
+  main.chat-column div.chat {
+    float: left;
+    box-sizing: border-box;
+    width: 85%; }
+    main.chat-column div.chat > header {
+      border-bottom: 1px dashed #aaa; }
+    main.chat-column div.chat div.message {
+      width: 100%;
+      clear: both;
+      padding: 10px 0; }
+      main.chat-column div.chat div.message span.from {
+        display: inline-block;
+        width: 140px;
+        float: left; }
+        main.chat-column div.chat div.message span.from time {
+          display: block; }
+        main.chat-column div.chat div.message span.from span.text {
+          float: left; }
 
 section.menu-bar {
   position: absolute;
@@ -35,9 +57,6 @@ section.channels-column {
   width: 15%;
   background-color: #493655;
   color: white; }
-  section.channels-column header {
-    font-size: 1.4em;
-    padding: 20px 20px 10px 20px; }
   section.channels-column section.buttons {
     position: absolute;
     display: block;
@@ -57,7 +76,7 @@ section.channels-column {
     section.channels-column ul li {
       padding: 5px 20px; }
       section.channels-column ul li a {
-        color: #eee; }
+        color: white; }
     section.channels-column ul li:hover {
       background-color: #3c2c45; }
 
