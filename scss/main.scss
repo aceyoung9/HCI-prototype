@@ -2,6 +2,7 @@ $accent: #493655;
 $topbarBackground: #ddd;
 $userlistBackground: #f5f5f5;
 $lightGrey: #aaa;
+$blueGrey: #2D4654;
 
 /* Base styles */
 
@@ -50,7 +51,7 @@ main.chat-column {
       border-bottom: 1px dashed $lightGrey;
     }
 
-    div.message { 
+    div.message {
       width: 100%;
       clear: both;
       padding: 10px 0;
@@ -76,7 +77,23 @@ section.menu-bar {
   position: absolute;
   width: 100%;
   background-color: $topbarBackground;
-  height: 40px;
+
+  ul {
+    margin-left: 15px;
+    li {
+      display: inline;
+    }
+  }
+  a {
+    line-height: 40px;
+    padding: 12px;
+
+    color: lighten($blueGrey, 15%);
+    &:hover {
+      color: lighten($accent, 20%);
+      background-color: darken($topbarBackground, 10%);
+    }
+  }
 }
 
 section.channels-column {
@@ -93,6 +110,9 @@ section.channels-column {
     background-color: darken($accent, 5%);
     text-align: center;
     padding: 10px;
+    &:hover {
+      background-color: lighten($accent, 10%);
+    }
 
     button {
       background-color: transparent;

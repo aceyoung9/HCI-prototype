@@ -50,8 +50,18 @@ main.chat-column {
 section.menu-bar {
   position: absolute;
   width: 100%;
-  background-color: #ddd;
-  height: 40px; }
+  background-color: #ddd; }
+  section.menu-bar ul {
+    margin-left: 15px; }
+    section.menu-bar ul li {
+      display: inline; }
+  section.menu-bar a {
+    line-height: 40px;
+    padding: 12px;
+    color: #487086; }
+    section.menu-bar a:hover {
+      color: #7f5e93;
+      background-color: #c4c4c4; }
 
 section.channels-column {
   width: 15%;
@@ -66,6 +76,8 @@ section.channels-column {
     background-color: #3c2c45;
     text-align: center;
     padding: 10px; }
+    section.channels-column section.buttons:hover {
+      background-color: #644a74; }
     section.channels-column section.buttons button {
       background-color: transparent;
       border: 0;
