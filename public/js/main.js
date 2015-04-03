@@ -26,7 +26,7 @@ $(function() {
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
-      $("div.chat").append(chat_html);
+      $("main.chat-column").append(chat_html);
     })
 
   })

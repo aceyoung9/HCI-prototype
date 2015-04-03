@@ -26,9 +26,9 @@
     </section>
 
     <main class="chat-column">
-      <div class="chat">
-        <script id="chat-template" type="text/x-handlebars-template">
-          <header>{{this.name}}</header>
+      <script id="chat-template" type="text/x-handlebars-template">
+        <header>{{this.name}}</header>
+        <div class="chat">
           {{#each activity}}
             <div class="message">
               <span class="from">
@@ -38,10 +38,11 @@
               <span class="text">{{this.content}}</span>
             </div>
           {{/each}}
-        </script>
         </div>
-      </div>
+      </script>
       <section class="input-bar">
+        <input type="text" />
+        <button type="button">Send</button>
       </section>
       <section class="users-column">
         <header>Users</header>

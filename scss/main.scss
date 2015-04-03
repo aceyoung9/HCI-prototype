@@ -1,13 +1,19 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/* Colors */
 $accent: #493655;
 $topbarBackground: #ddd;
 $userlistBackground: #f5f5f5;
 $lightGrey: #aaa;
+$lighterGrey: #fafafa;
 
 /* Base styles */
 
 html, body {
   height: 100%;
   width: 100%;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: lighter;
   font-size: 1em;
   line-height: 1.3em;
@@ -42,7 +48,7 @@ main.chat-column {
   width: 85%;
 
   div.chat {
-    float: left;
+    display: table;
     box-sizing: border-box;
     width: 85%;
 
@@ -51,23 +57,49 @@ main.chat-column {
     }
 
     div.message { 
-      width: 100%;
-      clear: both;
-      padding: 10px 0;
+      box-sizing: border-box;
+      display: table-row;
+      vertical-align: top;
 
       span.from {
-        display: inline-block;
+        display: table-cell;
         width: 140px;
         float: left;
+        padding: 5px;
 
-        time {
+        a, time {
           display: block;
         }
-
-        span.text {
-          float: left;
-        }
       }
+
+      span.text {
+        display: table-cell;
+        vertical-align: top;
+        padding: 5px;
+      }
+    }
+
+    div.message:hover {
+      background-color: $lighterGrey;
+    }
+  }
+
+  section.input-bar {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 85%;
+    background-color: darken($accent, 5%);
+    padding: 10px 10px 10px 0;
+    height: 50px;
+
+    input {
+      width: 93%;
+    }
+
+    button {
+      float: right;
     }
   }
 }
@@ -92,13 +124,14 @@ section.channels-column {
     width: 15%;
     background-color: darken($accent, 5%);
     text-align: center;
-    padding: 10px;
+    height: 50px;
 
     button {
       background-color: transparent;
       border: 0;
       font-size: 2em;
       font-weight: bold;
+      padding: 15px 0;
     }
   }
 

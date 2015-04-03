@@ -20,6 +20,48 @@ var data = {
       timestamp: moment('02 Apr 2015 10:01:00', 'DD-MM-YYYY HH:mm:ss'),
       type: "message",
       content: "3 wolf moon bitters plaid Intelligentsia cold-pressed Neutra sriracha stumptown"
+    },
+    {
+      user: "alice",
+      timestamp: moment('02 Apr 2015 10:01:30', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "single-origin coffee PBR cornhole small batch stumptown ennui"
+    },
+    {
+      user: "alice",
+      timestamp: moment('02 Apr 2015 10:02:00', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "church-key locavore four loko 90's Carles Pitchfork"
+    },
+    {
+      user: "molly",
+      timestamp: moment('02 Apr 2015 10:03:00', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "pop-up deep v bespoke, master cleanse keffiyeh organic heirloom"
+    },
+    {
+      user: "somealumni",
+      timestamp: moment('02 Apr 2015 10:03:25', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "Four loko Blue Bottle paleo, quinoa post-ironic Shoreditch banh mi kitsch VHS pickled hashtag church-key typewriter pug cred. BR Wes Anderson letterpress disrupt, pork belly master cleanse bicycle rights selfies wayfarers tilde chia umami. Tilde chillwave YOLO direct trade sriracha fanny pack. Master cleanse polaroid roof party, single-origin coffee distillery photo booth tattooed swag banh mi. Health goth Pitchfork hashtag, sustainable hella small batch paleo pour-over craft beer American Apparel narwhal trust fund mlkshk jean shorts distillery."
+    },
+    {
+      user: "alice",
+      timestamp: moment('02 Apr 2015 10:01:30', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "single-origin coffee PBR cornhole small batch stumptown ennui"
+    },
+    {
+      user: "alice",
+      timestamp: moment('02 Apr 2015 10:02:00', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "church-key locavore four loko 90's Carles Pitchfork"
+    },
+    {
+      user: "molly",
+      timestamp: moment('02 Apr 2015 10:03:00', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "pop-up deep v bespoke, master cleanse keffiyeh organic heirloom"
     }
     ]
   },

@@ -1,7 +1,11 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/* Colors */
 /* Base styles */
 html, body {
   height: 100%;
   width: 100%;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: lighter;
   font-size: 1em;
   line-height: 1.3em; }
@@ -29,23 +33,41 @@ main.chat-column, section.channels-column {
 main.chat-column {
   width: 85%; }
   main.chat-column div.chat {
-    float: left;
+    display: table;
     box-sizing: border-box;
     width: 85%; }
     main.chat-column div.chat > header {
       border-bottom: 1px dashed #aaa; }
     main.chat-column div.chat div.message {
-      width: 100%;
-      clear: both;
-      padding: 10px 0; }
+      box-sizing: border-box;
+      display: table-row;
+      vertical-align: top; }
       main.chat-column div.chat div.message span.from {
-        display: inline-block;
+        display: table-cell;
         width: 140px;
-        float: left; }
-        main.chat-column div.chat div.message span.from time {
+        float: left;
+        padding: 5px; }
+        main.chat-column div.chat div.message span.from a, main.chat-column div.chat div.message span.from time {
           display: block; }
-        main.chat-column div.chat div.message span.from span.text {
-          float: left; }
+      main.chat-column div.chat div.message span.text {
+        display: table-cell;
+        vertical-align: top;
+        padding: 5px; }
+    main.chat-column div.chat div.message:hover {
+      background-color: #fafafa; }
+  main.chat-column section.input-bar {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 85%;
+    background-color: #3c2c45;
+    padding: 10px 10px 10px 0;
+    height: 50px; }
+    main.chat-column section.input-bar input {
+      width: 93%; }
+    main.chat-column section.input-bar button {
+      float: right; }
 
 section.menu-bar {
   position: absolute;
@@ -65,12 +87,13 @@ section.channels-column {
     width: 15%;
     background-color: #3c2c45;
     text-align: center;
-    padding: 10px; }
+    height: 50px; }
     section.channels-column section.buttons button {
       background-color: transparent;
       border: 0;
       font-size: 2em;
-      font-weight: bold; }
+      font-weight: bold;
+      padding: 15px 0; }
   section.channels-column ul {
     padding: 0; }
     section.channels-column ul li {
