@@ -8,6 +8,7 @@ $userlistBackground: #f5f5f5;
 $lightGrey: #aaa;
 $lighterGrey: #fafafa;
 $blueGrey: #2D4654;
+$iconGrey: #eee;
 
 /* Base styles */
 
@@ -54,6 +55,7 @@ main.chat-column {
     left: 0px;
     overflow-y: auto;
     box-sizing: border-box;
+    border-right: 1px solid $lightGrey;
   }
 
   div.chat {
@@ -100,7 +102,8 @@ main.chat-column {
     bottom: 0;
     left: 0px;
     right: 200px;
-    background-color: darken($accent, 5%);
+    background-color: $userlistBackground;
+    border-top: 1px solid $lightGrey;
     padding: 10px 10px 10px 0;
     height: 50px;
 
@@ -109,17 +112,29 @@ main.chat-column {
       top: 5px;
       right: 90px;
       bottom: 10px;
-      left: 0;
+      left: 5px;
 
       input {
         height: 100%;
         width: 100%;
-        padding: 0 10px;
+        padding: 0 20px;
       }
     }
 
     button {
-      float: right;
+      position: absolute;
+      top: 1px;
+      bottom: 1px;
+      right: 1px;
+      padding: 10px;
+      font-size: 1.5em;
+      background-color: transparent;
+      border: 0;
+      color: $accent;
+
+      &:hover {
+        color: darken($accent, 10%);
+      }
     }
   }
 }
@@ -172,7 +187,7 @@ section.channels-column {
   }
 }
 
-section.channel-buttons {
+button.new-channel {
     position: absolute;
     display: block;
     box-sizing: border-box;
@@ -182,16 +197,13 @@ section.channel-buttons {
     text-align: center;
     height: 50px;
     padding: 12px;
+    color: $iconGrey;
+    border: 0;
+    font-size: 1.5em;
 
     &:hover {
-      background-color: lighten($accent, 10%);
-    }
-
-    button {
-      background-color: transparent;
-      border: 0;
-      font-size: 2em;
-      font-weight: bold;
+      cursor: pointer;
+      background-color: darken($accent, 3%);
     }
   }
 

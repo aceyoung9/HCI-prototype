@@ -39,7 +39,8 @@ main.chat-column {
     bottom: 50px;
     left: 0px;
     overflow-y: auto;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    border-right: 1px solid #aaa; }
   main.chat-column div.chat {
     display: table;
     box-sizing: border-box;
@@ -70,7 +71,8 @@ main.chat-column {
     bottom: 0;
     left: 0px;
     right: 200px;
-    background-color: #3c2c45;
+    background-color: #f5f5f5;
+    border-top: 1px solid #aaa;
     padding: 10px 10px 10px 0;
     height: 50px; }
     main.chat-column section.input-bar div.input-wrapper {
@@ -78,13 +80,23 @@ main.chat-column {
       top: 5px;
       right: 90px;
       bottom: 10px;
-      left: 0; }
+      left: 5px; }
       main.chat-column section.input-bar div.input-wrapper input {
         height: 100%;
         width: 100%;
-        padding: 0 10px; }
+        padding: 0 20px; }
     main.chat-column section.input-bar button {
-      float: right; }
+      position: absolute;
+      top: 1px;
+      bottom: 1px;
+      right: 1px;
+      padding: 10px;
+      font-size: 1.5em;
+      background-color: transparent;
+      border: 0;
+      color: #493655; }
+      main.chat-column section.input-bar button:hover {
+        color: #2e2236; }
 
 section.menu-bar {
   position: absolute;
@@ -116,7 +128,7 @@ section.channels-column {
       section.channels-column ul li a {
         color: white; }
 
-section.channel-buttons {
+button.new-channel {
   position: absolute;
   display: block;
   box-sizing: border-box;
@@ -125,14 +137,13 @@ section.channel-buttons {
   background-color: #3c2c45;
   text-align: center;
   height: 50px;
-  padding: 12px; }
-  section.channel-buttons:hover {
-    background-color: #644a74; }
-  section.channel-buttons button {
-    background-color: transparent;
-    border: 0;
-    font-size: 2em;
-    font-weight: bold; }
+  padding: 12px;
+  color: #eee;
+  border: 0;
+  font-size: 1.5em; }
+  button.new-channel:hover {
+    cursor: pointer;
+    background-color: #41304c; }
 
 section.users-column {
   position: absolute;
