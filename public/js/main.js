@@ -34,5 +34,32 @@ $(function() {
 
 Handlebars.registerHelper('time', function(timeStr) {
   var date = moment(timeStr);
-  return '<time datetime="' + timeStr + '">' + date.format("HH:mm") + '</time>'
+  return '<time datetime="' + timeStr + '">' + date.format("HH:mm") + '</time>';
+});
+
+Handlebars.registerHelper('make_message', function(act) {
+  var date = moment(act.timestamp);
+  var message_classes = 'message';
+  var message = '';
+  switch (act.type) {
+    case 'join':
+      message_classes += ' action';
+      message = 'joined';
+      break;
+    case 'part':
+      message_classes += ' action';
+      message = 'left';
+      break;
+    case 'quit':
+      message_classes += ' action';
+      message = 'quit'
+      break;
+    case 'message':
+      message = act.content;
+  }
+
+  var html = '<div class="' + message_classes + '"><span class="from"><a href="">' +
+    act.user + '</a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") +
+    '</time></span><span class="text">' + message + '</span></div>'
+  return html;
 });

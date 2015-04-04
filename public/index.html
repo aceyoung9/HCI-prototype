@@ -34,13 +34,7 @@
           <header>{{this.name}}</header>
           <div class="chat">
             {{#each activity}}
-              <div class="message">
-                <span class="from">
-                  <a href="">{{this.user}}</a>
-                  {{{time this.timestamp}}}
-                </span>
-                <span class="text">{{this.content}}</span>
-              </div>
+              {{{make_message this}}}
             {{/each}}
           </div>
         </script>

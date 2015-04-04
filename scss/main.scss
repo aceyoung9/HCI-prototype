@@ -9,6 +9,7 @@ $lightGrey: #aaa;
 $lighterGrey: #fafafa;
 $blueGrey: #2D4654;
 $iconGrey: #eee;
+$actionText: #666;
 
 /* Base styles */
 
@@ -55,7 +56,6 @@ main.chat-column {
     left: 0px;
     overflow-y: auto;
     box-sizing: border-box;
-    border-right: 1px solid $lightGrey;
   }
 
   div.chat {
@@ -76,9 +76,13 @@ main.chat-column {
         background-color: $lighterGrey;
       }
 
+      &.action .text {
+        color: $actionText;
+      }
+
       span.from {
         display: table-cell;
-        width: 140px;
+        width: 100px;
         float: left;
         padding: 5px;
 

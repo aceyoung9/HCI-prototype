@@ -7,7 +7,7 @@ var data = {
   channels: [
   {
     name: "##ccis",
-    users: ["somealumni", "molly", "alice"],
+    users: ["alice", "molly", "sarah", "somealumni"],
     activity: [
     {
       user: "somealumni",
@@ -62,6 +62,17 @@ var data = {
       timestamp: moment('02 Apr 2015 10:10:30', 'DD-MM-YYYY HH:mm:ss'),
       type: "message",
       content: "crucifix PBR four dollar toast, hoodie chia authentic pug asymmetrical roof party vegan small batch"
+    },
+    {
+      user: "sarah",
+      timestamp: moment('02 Apr 2015 10:15:30', 'DD-MM-YYYY HH:mm:ss'),
+      type: "join"
+    },
+    {
+      user: "molly",
+      timestamp: moment('02 Apr 2015 10:16:00', 'DD-MM-YYYY HH:mm:ss'),
+      type: "message",
+      content: "Bicycle rights Bushwick chambray Schlitz vinyl, VHS selvage before they sold out paleo viral."
     }
     ]
   },

@@ -39,8 +39,7 @@ main.chat-column {
     bottom: 50px;
     left: 0px;
     overflow-y: auto;
-    box-sizing: border-box;
-    border-right: 1px solid #aaa; }
+    box-sizing: border-box; }
   main.chat-column div.chat {
     display: table;
     box-sizing: border-box;
@@ -53,9 +52,11 @@ main.chat-column {
       vertical-align: top; }
       main.chat-column div.chat div.message:hover {
         background-color: #fafafa; }
+      main.chat-column div.chat div.message.action .text {
+        color: #666; }
       main.chat-column div.chat div.message span.from {
         display: table-cell;
-        width: 140px;
+        width: 100px;
         float: left;
         padding: 5px; }
         main.chat-column div.chat div.message span.from a, main.chat-column div.chat div.message span.from time {
