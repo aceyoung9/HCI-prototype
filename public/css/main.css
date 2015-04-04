@@ -23,6 +23,9 @@ header {
   font-size: 1.4em;
   padding: 10px; }
 
+.hidden {
+  display: none; }
+
 /* Sections */
 main.chat-column {
   display: block;

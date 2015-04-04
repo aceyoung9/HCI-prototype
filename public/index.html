@@ -31,12 +31,16 @@
     <main class="chat-column">
       <div class="chat-wrapper">
         <script id="chat-template" type="text/x-handlebars-template">
-          <header>{{this.name}}</header>
-          <div class="chat">
-            {{#each activity}}
-              {{{make_message this}}}
-            {{/each}}
+          {{#each this}}
+          <div class="channel-{{this.slug}} hidden">
+            <header>{{this.name}}</header>
+            <div class="chat">
+              {{#each this.activity}}
+                {{{make_message this}}}
+              {{/each}}
+            </div>
           </div>
+          {{/each}}
         </script>
       </div>
       <section class="input-bar">
@@ -53,7 +57,11 @@
         <ul>
         <script id="users-template" type="text/x-handlebars-template">
           {{#each this}}
-            <li><a href="">{{this}}</a></li>
+            <div class="users-{{this.slug}} hidden">
+            {{#each this.users}}
+              <li><a href="">{{this}}</a></li>
+            {{/each}}
+            </div>
           {{/each}}
         </script>
         </ul>

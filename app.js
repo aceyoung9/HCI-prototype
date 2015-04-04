@@ -26,13 +26,8 @@ app.get('/users/:channel', function(req, res) {
   res.json(channel.users);
 });
 
-app.get('/activity/:channel/all', function(req, res) {
-  var channel = _.findWhere(data.channels, {name: req.params.channel})
-  if (!channel) {
-    res.statusCode = 404;
-    return res.send('No channel "' + req.params.channel + '" found.')
-  }
-  res.json(_.pick(channel, 'name', 'activity'));
+app.get('/activity/all', function(req, res) {
+  res.json(data.channels);
 });
 
 app.listen(process.env.PORT || 4730);
@@ -42,6 +37,7 @@ var data = {
   channels: [
   {
     name: "##ccis",
+    slug: "ccis",
     users: ["alice", "molly", "sarah", "somealumni"],
     activity: [
     {
@@ -113,7 +109,28 @@ var data = {
   },
   {
     name: "#nuhacks",
-    users: ["molly", "alice"]
+    slug: "nuhacks",
+    users: ["molly", "alice"],
+    activity: [
+    {
+      user: "molly",
+      timestamp: moment().subtract(3, 'minutes'),
+      type: "message",
+      content: "four loko biodiesel raw denim, street art locavore small batch hoodie trust fund kale chips twee Austin Etsy organic"
+    },
+    {
+      user: "molly",
+      timestamp: moment().subtract(2, 'minutes'),
+      type: "message",
+      content: "Try-hard raw denim Truffaut asymmetrical"
+    },
+    {
+      user: "alice",
+      timestamp: moment().subtract(2, 'minutes'),
+      type: "message",
+      content: "tattooed slow-carb Carles street art hella Thundercats bespoke"
+    }
+    ]
   }
   ]
 };

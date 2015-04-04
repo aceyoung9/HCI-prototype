@@ -17,22 +17,19 @@ $(function() {
     var channels_html = channels_template(channel_data);
     $("section.channels-column ul").append(channels_html);
 
-    var users_promise = $.getJSON('http://localhost:4730/users/' +
-      encodeURIComponent(channel_data[0]) );
-    
-    users_promise.done( function(user_data) {
-      var users_html = users_template(user_data);
-      $("section.users-column ul").append(users_html);
-    });
-
-    var chat_promise = $.getJSON('http://localhost:4730/activity/' +
-      encodeURIComponent(channel_data[0]) + '/all' );
+    var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
       $("div.chat-wrapper").append(chat_html);
+      $("div.channel-" + chat_data[0].slug).removeClass("hidden").addClass('visible');    
+
+      var users_html = users_template(chat_data);
+      $("section.users-column ul").append(users_html);
+      $("div.users-" + chat_data[0].slug).removeClass("hidden").addClass('visible');  
     });
   });
+
 
   input_promise.done( function (input_data) {
     var input_html = input_template(input_data);
@@ -74,23 +71,23 @@ Handlebars.registerHelper('make_message', function(act) {
   var message = '';
   switch (act.type) {
     case 'join':
-      message_classes += ' action';
-      message = 'joined';
-      break;
+    message_classes += ' action';
+    message = 'joined';
+    break;
     case 'part':
-      message_classes += ' action';
-      message = 'left';
-      break;
+    message_classes += ' action';
+    message = 'left';
+    break;
     case 'quit':
-      message_classes += ' action';
-      message = 'quit'
-      break;
+    message_classes += ' action';
+    message = 'quit'
+    break;
     case 'message':
-      message = act.content;
+    message = act.content;
   }
 
   var html = '<div class="' + message_classes + '"><span class="from"><a href="">' +
-    act.user + '</a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") +
-    '</time></span><span class="text">' + message + '</span></div>'
+  act.user + '</a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") +
+  '</time></span><span class="text">' + message + '</span></div>'
   return html;
 });
