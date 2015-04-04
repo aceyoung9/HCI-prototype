@@ -3,7 +3,42 @@ var _ = require('underscore');
 var moment = require('moment');
 var app = express();
 
+app.use(express.static('public'));
+
+app.get('/', function(req, res) {
+  res.sendfile("index.html");
+})
+
+app.get('/channels', function(req, res) {
+  res.json(_.pluck(data.channels, 'name'));
+});
+
+app.get('/user', function(req, res) {
+  res.json(data.nick);
+})
+
+app.get('/users/:channel', function(req, res) {
+  var channel = _.findWhere(data.channels, {name: req.params.channel})
+  if (!channel) {
+    res.statusCode = 404;
+    return res.send('No channel "' + req.params.channel + '" found.')
+  }
+  res.json(channel.users);
+});
+
+app.get('/activity/:channel/all', function(req, res) {
+  var channel = _.findWhere(data.channels, {name: req.params.channel})
+  if (!channel) {
+    res.statusCode = 404;
+    return res.send('No channel "' + req.params.channel + '" found.')
+  }
+  res.json(_.pick(channel, 'name', 'activity'));
+});
+
+app.listen(process.env.PORT || 4730);
+
 var data = {
+  nick: "test_user",
   channels: [
   {
     name: "##ccis",
@@ -82,33 +117,3 @@ var data = {
   }
   ]
 };
-
-app.use(express.static('public'));
-
-app.get('/', function(req, res) {
-  res.sendfile("index.html");
-})
-
-app.get('/channels', function(req, res) {
-  res.json(_.pluck(data.channels, 'name'));
-});
-
-app.get('/users/:channel', function(req, res) {
-  var channel = _.findWhere(data.channels, {name: req.params.channel})
-  if (!channel) {
-    res.statusCode = 404;
-    return res.send('No channel "' + req.params.channel + '" found.')
-  }
-  res.json(channel.users);
-});
-
-app.get('/activity/:channel/all', function(req, res) {
-  var channel = _.findWhere(data.channels, {name: req.params.channel})
-  if (!channel) {
-    res.statusCode = 404;
-    return res.send('No channel "' + req.params.channel + '" found.')
-  }
-  res.json(_.pick(channel, 'name', 'activity'));
-});
-
-app.listen(process.env.PORT || 4730);

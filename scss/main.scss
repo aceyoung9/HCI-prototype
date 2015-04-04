@@ -6,7 +6,6 @@ $accent: #493655;
 $topbarBackground: #ddd;
 $userlistBackground: #f5f5f5;
 $lightGrey: #aaa;
-$lighterGrey: #fafafa;
 $blueGrey: #2D4654;
 $iconGrey: #eee;
 $actionText: #666;
@@ -73,7 +72,7 @@ main.chat-column {
       vertical-align: top;
 
       &:hover {
-        background-color: $lighterGrey;
+        background-color: lighten($lightGrey, 30%);
       }
 
       &.action .text {
@@ -114,14 +113,28 @@ main.chat-column {
     div.input-wrapper {
       position: absolute;
       top: 5px;
-      right: 90px;
-      bottom: 10px;
+      right: 45px;
+      bottom: 5px;
       left: 5px;
 
+      label {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        padding: 3px;
+        border-radius: 3px;
+        background-color: lighten($lightGrey, 20%);
+      
+        &:after {
+          content: ":";
+        }
+      }
+
       input {
+        box-sizing: border-box;
         height: 100%;
         width: 100%;
-        padding: 0 20px;
+        padding: 0 20px 0 90px;
       }
     }
 

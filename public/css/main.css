@@ -51,7 +51,7 @@ main.chat-column {
       display: table-row;
       vertical-align: top; }
       main.chat-column div.chat div.message:hover {
-        background-color: #fafafa; }
+        background-color: #f6f6f6; }
       main.chat-column div.chat div.message.action .text {
         color: #666; }
       main.chat-column div.chat div.message span.from {
@@ -79,13 +79,23 @@ main.chat-column {
     main.chat-column section.input-bar div.input-wrapper {
       position: absolute;
       top: 5px;
-      right: 90px;
-      bottom: 10px;
+      right: 45px;
+      bottom: 5px;
       left: 5px; }
+      main.chat-column section.input-bar div.input-wrapper label {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        padding: 3px;
+        border-radius: 3px;
+        background-color: #dddddd; }
+        main.chat-column section.input-bar div.input-wrapper label:after {
+          content: ":"; }
       main.chat-column section.input-bar div.input-wrapper input {
+        box-sizing: border-box;
         height: 100%;
         width: 100%;
-        padding: 0 20px; }
+        padding: 0 20px 0 90px; }
     main.chat-column section.input-bar button {
       position: absolute;
       top: 1px;

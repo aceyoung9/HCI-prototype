@@ -41,9 +41,12 @@
       </div>
       <section class="input-bar">
         <div class="input-wrapper">
-          <input type="text" />
+          <script id="input-template" type="text/x-handlebars-template">
+            <label for="chat-input" class="nick">{{this}}</label>
+            <input type="text" id="chat-input" class="chat-input"/>
+          </script>
         </div>
-        <button type="button"><i class="fa fa-arrow-right"></i></button>
+        <button type="button" class="chat-send"><i class="fa fa-arrow-right"></i></button>
       </section>
       <section class="users-column">
         <header>Users</header>
