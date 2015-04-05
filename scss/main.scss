@@ -3,6 +3,8 @@
 
 /* Colors */
 $accent: #493655;
+$accentAqua: #7EBDC3;
+$accentMuteBlue: #243B4A;
 $topbarBackground: #ddd;
 $userlistBackground: #f5f5f5;
 $lightGrey: #aaa;
@@ -51,6 +53,11 @@ main.chat-column {
   left: 200px;
   background-color: white;
 
+  header {
+    background-color: mix($accentAqua, white, 40%);
+    color: $accentMuteBlue;
+  }
+
   div.chat-wrapper {
     position: absolute;
     top: 0px;
@@ -70,7 +77,7 @@ main.chat-column {
       border-bottom: 1px dashed $lightGrey;
     }
 
-    div.message { 
+    div.message {
       box-sizing: border-box;
       display: table-row;
       vertical-align: top;
@@ -128,7 +135,7 @@ main.chat-column {
         padding: 3px;
         border-radius: 3px;
         background-color: lighten($lightGrey, 20%);
-      
+
         &:after {
           content: ":";
         }
@@ -191,6 +198,11 @@ section.channels-column {
   width: 200px;
   color: white;
 
+  header {
+    background-color: lighten($accent, 10%);
+    color: lighten($accent, 60%);
+  }
+
   ul {
     padding: 0;
 
@@ -238,11 +250,16 @@ section.users-column {
   background-color: $userlistBackground;
   overflow-y: auto;
 
+  header {
+    background-color: mix($accentAqua, $userlistBackground, 20%);
+    color: $accentMuteBlue;
+  }
+
   ul {
-    padding: 0;
+    padding: 10px 0 0 0;
 
     li {
-      padding: 0 10px; 
+      padding: 0 10px;
 
       a {
         color: $accent;

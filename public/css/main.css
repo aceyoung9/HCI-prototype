@@ -35,6 +35,9 @@ main.chat-column {
   bottom: 0px;
   left: 200px;
   background-color: white; }
+  main.chat-column header {
+    background-color: #cbe4e7;
+    color: #243B4A; }
   main.chat-column div.chat-wrapper {
     position: absolute;
     top: 0px;
@@ -133,6 +136,9 @@ section.channels-column {
   top: 40px;
   width: 200px;
   color: white; }
+  section.channels-column header {
+    background-color: #644a74;
+    color: #e0d7e6; }
   section.channels-column ul {
     padding: 0; }
     section.channels-column ul li {
@@ -168,8 +174,11 @@ section.users-column {
   box-sizing: border-box;
   background-color: #f5f5f5;
   overflow-y: auto; }
+  section.users-column header {
+    background-color: #dde9eb;
+    color: #243B4A; }
   section.users-column ul {
-    padding: 0; }
+    padding: 10px 0 0 0; }
     section.users-column ul li {
       padding: 0 10px; }
       section.users-column ul li a {
