@@ -7,7 +7,7 @@ app.use(express.static('public'));
 
 app.get('/', function(req, res) {
   res.sendfile("index.html");
-})
+});
 
 app.get('/channels', function(req, res) {
   var joined = _.filter(data.channels, function(chan) {
