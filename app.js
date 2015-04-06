@@ -10,9 +10,23 @@ app.get('/', function(req, res) {
 })
 
 app.get('/channels', function(req, res) {
-  res.json(_.map(data.channels, function(chan) {
+  var joined = _.filter(data.channels, function(chan) {
+    return chan.joined;
+  })
+  res.json(_.map(joined, function(chan) {
     return _.pick(chan, 'name', 'slug');
   }));
+});
+
+app.get('/channel/:slug', function(req, res) {
+  var channel = _.find(data.channels, function(chan) {
+    return chan.slug == req.params.slug;
+  });
+  if (!channel) {
+    res.statusCode = 404;
+    return res.send('No slug "' + req.params.slug + '" found.')
+  }
+  res.json(channel);
 });
 
 app.get('/user', function(req, res) {
@@ -41,6 +55,7 @@ var data = {
     name: "##ccis",
     slug: "ccis",
     users: ["alice", "molly", "sarah", "somealumni"],
+    joined: true,
     activity: [
     {
       user: "somealumni",
@@ -112,25 +127,52 @@ var data = {
   {
     name: "#nuhacks",
     slug: "nuhacks",
+    joined: true,
     users: ["molly", "alice"],
     activity: [
     {
       user: "molly",
-      timestamp: moment().subtract(3, 'minutes'),
+      timestamp: moment().subtract(20, 'minutes'),
       type: "message",
       content: "four loko biodiesel raw denim, street art locavore small batch hoodie trust fund kale chips twee Austin Etsy organic"
     },
     {
       user: "molly",
-      timestamp: moment().subtract(2, 'minutes'),
+      timestamp: moment().subtract(19, 'minutes'),
       type: "message",
       content: "Try-hard raw denim Truffaut asymmetrical"
     },
     {
       user: "alice",
-      timestamp: moment().subtract(2, 'minutes'),
+      timestamp: moment().subtract(8, 'minutes'),
       type: "message",
       content: "tattooed slow-carb Carles street art hella Thundercats bespoke"
+    }
+    ]
+  },
+  {
+    name: "##greek",
+    slug: "greek",
+    joined: false,
+    users: ["adipisicing", "brooklyn", "cronut", "magna", "next_level", "synth"],
+    activity: [
+    {
+      user: "adipisicing",
+      timestamp: moment().subtract(14, 'minutes'),
+      type: "message",
+      content: "Portland sartorial you probably haven't heard of them"
+    },
+    {
+      user: "adipisicing",
+      timestamp: moment().subtract(13, 'minutes'),
+      type: "message",
+      content: "Kickstarter aesthetic voluptate gentrify"
+    },
+    {
+      user: "synth",
+      timestamp: moment().subtract(8, 'minutes'),
+      type: "message",
+      content: "trust fund hella odio four dollar toast"
     }
     ]
   }

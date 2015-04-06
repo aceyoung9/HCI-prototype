@@ -50,10 +50,10 @@ $(function() {
           $(".add-channel li.list-group-item.two-hash").removeClass("hidden");
         }
         else if ("greekhistory".indexOf(stripped) == 0) {
-          // Show ##greek and #history
+          // Show ##greek and ##history
           $(".add-channel li.list-group-item.greek, .add-channel li.list-group-item.history").removeClass("hidden");
         }
-        else if ("#history".indexOf(stripped) == 0 || "history".indexOf(stripped) == 0) {
+        else if ("##history".indexOf(stripped) == 0 || "history".indexOf(stripped) == 0) {
           // Show #history
           $(".add-channel li.list-group-item.history").removeClass("hidden");
         }
@@ -73,7 +73,36 @@ $(function() {
           // Show error and help prompt
           $(".add-channel li.list-group-item.cant-find").removeClass("hidden");
         }
-      })
+      });
+
+      $(".add-channel li.list-group-item").click( function(e) {
+        var is_greek = $(e.currentTarget).hasClass("greek");
+        if (!is_greek) {
+          unimplemented();
+        }
+        else {
+          if ($("section.channels-column a.greek").length == 0) {
+            var greek_promise = $.getJSON('http://localhost:4730/channel/greek');
+            greek_promise.done( function(greek_data) {
+              var $greek = $('<li><a class="channel-link ' +
+                greek_data.slug + '" data-channel="' + greek_data.slug + 
+                '">' + greek_data.name + '</a></li>');
+              $greek.click( function(e) {
+                var target_channel = $(e.target).data('channel');
+                $("div.channel").addClass("hidden");
+                $("div.channel." + target_channel).removeClass("hidden");
+                $("div.users").addClass("hidden");
+                $("div.users." + target_channel).removeClass("hidden");
+              });
+              $("section.channels-column ul").append($greek);
+            });
+            $(".channel").addClass("hidden");
+            $(".channel.greek").removeClass("hidden");
+            $(".users").addClass("hidden");
+            $(".users.greek").removeClass("hidden");
+          }
+        }
+      });
     });
   });
 
@@ -107,6 +136,10 @@ $(function() {
     var html = message_template(activity);
     $("div.chat").append(html);
     $input.val("");
+  }
+
+  function unimplemented() {
+    alert("This part of the prototype is unimplemented.");
   }
 });
 
