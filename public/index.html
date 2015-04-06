@@ -26,7 +26,9 @@
         </script>
       </ul>
     </section>
-    <button class="new-channel btn btn-default" data-toggle="tooltip" data-placement="top" type="button" title="Add a channel"><i class="fa fa-plus"></i></button>
+    <div class="new-channel-wrapper" data-toggle="tooltip" data-placement="top" title="Add a channel">
+      <button class="new-channel btn btn-default" data-toggle="modal" data-target="#add-channel-modal" type="button" title="Add a channel"><i class="fa fa-plus"></i></button>
+    </div>
 
     <main class="chat-column">
       <div class="chat-wrapper">
@@ -75,3 +77,32 @@
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
+
+<!-- Add a channel modal -->
+<div class="add-channel modal fade" id="add-channel-modal" tabindex="-1" role="dialog" aria-labelledby="join-header" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+        <h4 class="modal-title" id="join-header">Join a channel</h4>
+      </div>
+      <div class="modal-body">
+        <input class="form-control" type="text" placeholder="Add #channel or search by keyword"/>
+        <ul class="list-group hidden">
+          <li class="list-group-item cant-find hidden">
+            <span class="header">Can't find a channel with that name.</span>
+            <span class="description">Use a "#" to find an exact channel name, otherwise omit it to search by topic.</span>
+          </li>
+          <li class="list-group-item hidden">
+            <span class="header">##greek</span>
+            <span class="description">High Life blog Schlitz pop-up. Biodiesel polaroid narwhal, Banksy readymade mlkshk butcher health goth. Gastropub flannel craft beer tattooed retro. Pop-up gentrify American Apparel, Portland actually chia health goth dreamcatcher you probably haven't heard of them farm-to-table forage tousled messenger bag.</span>
+          </li>
+          <li class="list-group-item hidden">
+            <span class="header">#history</span>
+            <span class="description">Raw denim cray Neutra aesthetic, salvia gastropub cred artisan crucifix. Gastropub post-ironic dreamcatcher kogi, flexitarian retro health goth +1 street art sustainable butcher locavore photo booth Tumblr next level. Scenester Wes Anderson PBR 3 wolf moon.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

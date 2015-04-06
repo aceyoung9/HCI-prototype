@@ -164,23 +164,27 @@ section.channels-column {
         width: 100%;
         color: white; }
 
-button.new-channel {
+div.new-channel-wrapper {
   position: absolute;
   display: block;
   box-sizing: border-box;
   bottom: 0;
   width: 200px;
-  background-color: #3c2c45;
-  text-align: center;
-  height: 50px;
-  padding: 10px;
-  color: #eee;
-  border: 0;
-  font-size: 1.5em; }
-  button.new-channel:hover {
-    cursor: pointer;
-    background-color: #41304c;
-    color: white; }
+  height: 50px; }
+  div.new-channel-wrapper button.new-channel {
+    width: 100%;
+    height: 100%;
+    background-color: #3c2c45;
+    text-align: center;
+    height: 50px;
+    padding: 10px;
+    color: #eee;
+    border: 0;
+    font-size: 1.5em; }
+    div.new-channel-wrapper button.new-channel:hover {
+      cursor: pointer;
+      background-color: #41304c;
+      color: white; }
 
 section.users-column {
   position: absolute;
@@ -200,5 +204,21 @@ section.users-column {
       padding: 0 10px; }
       section.users-column ul li a {
         color: #493655; }
+
+.modal.add-channel li.list-group-item {
+  padding: 0;
+  cursor: pointer; }
+  .modal.add-channel li.list-group-item.cant-find {
+    cursor: default; }
+  .modal.add-channel li.list-group-item:hover:not(.cant-find) {
+    background-color: #dddddd; }
+  .modal.add-channel li.list-group-item span {
+    display: block;
+    padding: 10px; }
+  .modal.add-channel li.list-group-item span.header {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-weight: 400; }
+  .modal.add-channel li.list-group-item span.description {
+    padding-top: 5px; }
 
 /*# sourceMappingURL=main.css.map */

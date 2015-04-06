@@ -240,12 +240,17 @@ section.channels-column {
   }
 }
 
-button.new-channel {
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    bottom: 0;
-    width: 200px;
+div.new-channel-wrapper {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 200px;
+  height: 50px;
+
+  button.new-channel {
+    width: 100%;
+    height: 100%;
     background-color: darken($accent, 5%);
     text-align: center;
     height: 50px;
@@ -260,6 +265,7 @@ button.new-channel {
       color: white;
     }
   }
+}
 
 section.users-column {
   position: absolute;
@@ -285,6 +291,35 @@ section.users-column {
       a {
         color: $accent;
       }
+    }
+  }
+}
+
+.modal.add-channel {
+  li.list-group-item {
+    padding: 0;
+    cursor: pointer;
+
+    &.cant-find {
+      cursor: default;
+    }
+
+    &:hover:not(.cant-find) {
+      background-color: lighten($lightGrey, 20%);
+    }
+
+    span {
+      display: block;
+      padding: 10px;
+    }
+
+    span.header {
+      background-color: rgba(0, 0, 0, 0.05);
+      font-weight: 400;
+    }
+
+    span.description {
+      padding-top: 5px;
     }
   }
 }
