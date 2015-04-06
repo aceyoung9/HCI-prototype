@@ -11,4 +11,4 @@ npm install
 node app.js
 ```
 
-Once you've done this, navigate to http://localhost:4730/ in your browser.
+Once you've done this, navigate to [http://localhost:4730/](http://localhost:4730/) in your browser.
