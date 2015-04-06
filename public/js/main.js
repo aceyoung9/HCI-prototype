@@ -196,6 +196,8 @@ $(function() {
   });
 
   function send_message() {
+    var $active_channel = $("div.channel:not(.hidden) div.chat");
+    var $chat_wrapper = $(".chat-wrapper");
     var $input = $("input.chat-input");
     var message = $input.val();
     var activity = {
@@ -205,7 +207,10 @@ $(function() {
       content: message
     };
     var html = message_template(activity);
-    $("div.chat").append(html);
+    $active_channel.append(html);
+
+    $chat_wrapper.animate({scrollTop: $chat_wrapper[0].scrollHeight}, 500);
+    console.log($active_channel[0].scrollHeight);
     $input.val("");
   }
 
