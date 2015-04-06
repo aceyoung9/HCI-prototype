@@ -127,21 +127,20 @@ main.chat-column {
       main.chat-column section.input-bar button:hover {
         color: #2e2236; }
 
-section.menu-bar {
+div.navbar {
   position: absolute;
   width: 100%;
-  background-color: #ddd; }
-  section.menu-bar ul {
-    margin-left: 15px; }
-    section.menu-bar ul li {
-      display: inline; }
-  section.menu-bar a {
+  height: 40px;
+  min-height: 40px;
+  box-sizing: border-box;
+  background-color: #ddd;
+  border-radius: 0; }
+  div.navbar a {
     line-height: 40px;
-    padding: 12px;
+    padding: 0 12px;
     color: #487086; }
-    section.menu-bar a:hover {
-      color: #7f5e93;
-      background-color: #c4c4c4; }
+  div.navbar ul.dropdown-menu {
+    margin-top: -2px; }
 
 section.channels-column {
   position: absolute;

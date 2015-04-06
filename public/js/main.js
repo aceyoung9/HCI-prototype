@@ -106,7 +106,6 @@ $(function() {
     });
   });
 
-
   input_promise.done( function (input_data) {
     var input_html = input_template(input_data);
     $("div.input-wrapper").append(input_html);
@@ -119,6 +118,10 @@ $(function() {
         return false;
       }
     });
+  });
+
+  $(".navbar a.schedule").click( function(e) {
+    console.log("schedule a message");
   });
 
   /* Initialize tooltips */
