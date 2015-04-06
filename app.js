@@ -146,7 +146,7 @@ var data = {
       user: "alice",
       timestamp: moment().subtract(8, 'minutes'),
       type: "message",
-      content: "tattooed slow-carb Carles street art hella Thundercats bespoke"
+      content: "tattooed slow-carb Carles street art hella Thundercats bespoke. Dreamcatcher taxidermy organic, mumblecore American Apparel 8-bit twee kogi sustainable church-key swag. Bitters aesthetic farm-to-table, put a bird on it Etsy gluten-free quinoa listicle lumbersexual. Cardigan fanny pack swag mumblecore, lomo Wes Anderson +1 kitsch biodiesel. Organic vegan cronut, meditation stumptown Williamsburg raw denim literally Helvetica single-origin coffee"
     }
     ]
   },
@@ -173,6 +173,18 @@ var data = {
       timestamp: moment().subtract(8, 'minutes'),
       type: "message",
       content: "trust fund hella odio four dollar toast"
+    },
+    {
+      user: "adipisicing",
+      timestamp: moment().subtract(6, 'minutes'),
+      type: "message",
+      content: " Four loko PBR&B aesthetic church-key, synth Echo Park pug chia banh mi cray. Etsy listicle yr, pop-up quinoa Wes Anderson sriracha selvage Intelligentsia farm-to-table meggings. Vegan disrupt photo booth four loko, freegan twee gentrify American Apparel Carles you probably haven't heard of them Banksy artisan 90's."
+    },
+    {
+      user: "synth",
+      timestamp: moment().subtract(4, 'minutes'),
+      type: "message",
+      content: "Deep v organic 90's umami, small batch slow-carb aesthetic literally leggings +1 hoodie blog"
     }
     ]
   }

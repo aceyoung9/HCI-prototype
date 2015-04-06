@@ -114,7 +114,7 @@ main.chat-column {
         padding: 5px;
         font-weight: 400;
 
-        a, time {
+        button, time {
           display: block;
         }
 
@@ -123,8 +123,11 @@ main.chat-column {
           line-height: 1.1em;
         }
 
-        a {
+        button {
           color: lighten($accent, 15%);
+          padding: 0;
+          text-align: left;
+          font-size: 16px;
 
           &:hover {
             text-decoration: none;

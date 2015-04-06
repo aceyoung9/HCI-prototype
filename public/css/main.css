@@ -75,14 +75,17 @@ main.chat-column {
         float: left;
         padding: 5px;
         font-weight: 400; }
-        main.chat-column div.chat div.message span.from a, main.chat-column div.chat div.message span.from time {
+        main.chat-column div.chat div.message span.from button, main.chat-column div.chat div.message span.from time {
           display: block; }
         main.chat-column div.chat div.message span.from time {
           font-size: .85em;
           line-height: 1.1em; }
-        main.chat-column div.chat div.message span.from a {
-          color: #715484; }
-          main.chat-column div.chat div.message span.from a:hover {
+        main.chat-column div.chat div.message span.from button {
+          color: #715484;
+          padding: 0;
+          text-align: left;
+          font-size: 16px; }
+          main.chat-column div.chat div.message span.from button:hover {
             text-decoration: none; }
       main.chat-column div.chat div.message span.text {
         display: table-cell;

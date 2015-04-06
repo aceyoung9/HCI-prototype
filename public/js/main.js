@@ -12,14 +12,14 @@ $(function() {
   var input_template = Handlebars.compile(input_source);
   var frequency_template = Handlebars.compile(frequency_source);
 
-  var channels_promise = $.getJSON('http://mollywhite.net:4730/channels');
-  var input_promise = $.getJSON('http://mollywhite.net:4730/user');
+  var channels_promise = $.getJSON('http://localhost:4730/channels');
+  var input_promise = $.getJSON('http://localhost:4730/user');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
     $("section.channels-column ul").append(channels_html);
 
-    var chat_promise = $.getJSON('http://mollywhite.net:4730/activity/all' );
+    var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
@@ -109,7 +109,7 @@ $(function() {
         }
         else {
           if ($("section.channels-column a.greek").length == 0) {
-            var greek_promise = $.getJSON('http://mollywhite.net:4730/channel/greek');
+            var greek_promise = $.getJSON('http://localhost:4730/channel/greek');
             greek_promise.done( function(greek_data) {
               var $greek = $('<li><a class="channel-link ' +
                 greek_data.slug + '" data-channel="' + greek_data.slug + 
@@ -283,9 +283,10 @@ Handlebars.registerHelper('make_message', function(act) {
     message = act.content;
   }
 
-  var html = '<div class="' + message_classes + '"><span class="from"><a href="">' +
-  act.user + '</a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") +
-  '</time></span><span class="text">' + message + '</span></div>'
+  var html = '<div class="' + message_classes + '"><span class="from"><a href="#" ><div class="btn-group">' +
+    '<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">' + act.user + '</button>' +
+    '<ul class="dropdown-menu" role="menu"><li><a href="#" class="report" data-nick="' + act.user + '">Report user</a></li>' +
+    '</ul></div></a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") + '</time></span><span class="text">' + message + '</span></div>';
   return html;
 });
 
