@@ -220,4 +220,7 @@ section.users-column {
   .modal.add-channel li.list-group-item span.description {
     padding-top: 5px; }
 
+.modal.schedule .modal-content {
+  height: 500px; }
+
 /*# sourceMappingURL=main.css.map */

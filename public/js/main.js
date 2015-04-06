@@ -120,10 +120,6 @@ $(function() {
     });
   });
 
-  $(".navbar a.schedule").click( function(e) {
-    console.log("schedule a message");
-  });
-
   /* Initialize tooltips */
   $('[data-toggle="tooltip"]').tooltip();
 
@@ -133,6 +129,16 @@ $(function() {
   });
   $('#add-channel-modal').on('shown.bs.modal', function () {
     $('#add-channel-modal input').focus();
+  });
+
+  /* Initialize datepickers */
+  $("#datetimepicker-start").datetimepicker();
+  $("#datetimepicker-end").datetimepicker();
+  $("#datetimepicker-start").on("dp.change", function(e) {
+    $("#datetimepicker-end").data("DateTimePicker").minDate(e.date);
+  });
+  $("#datetimepicker-end").on("dp.change", function(e) {
+    $("#datetimepicker-start").data("DateTimePicker").maxDate(e.date);
   });
 
   function send_message() {
