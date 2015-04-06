@@ -137,8 +137,8 @@ $(function() {
   });
 
   /* Initialize datepickers */
-  $("#datetimepicker-start").datetimepicker();
-  $("#datetimepicker-end").datetimepicker();
+  $("#datetimepicker-start").datetimepicker({defaultDate: moment()});
+  $("#datetimepicker-end").datetimepicker({defaultDate: moment().add(1, 'days')});
   $("#datetimepicker-start").on("dp.change", function(e) {
     $("#datetimepicker-end").data("DateTimePicker").minDate(e.date);
   });
@@ -146,8 +146,18 @@ $(function() {
     $("#datetimepicker-start").data("DateTimePicker").maxDate(e.date);
   });
 
-  /* Initialize frequency option */
-  $("")
+  $(".modal.schedule .form-control").on('change dp.change keyup', function(e) {
+    $(".modal.schedule button").prop("disabled", false);
+    $(".modal.schedule .form-control").each( function(e) {
+      if ($(this).val() == "") {
+        $(".modal.schedule button").prop("disabled", true);
+      }
+    });
+  });
+
+  $(".modal.schedule button").click( function(e) {
+    console.log("yo");
+  })
 
   function send_message() {
     var $input = $("input.chat-input");
@@ -201,8 +211,8 @@ Handlebars.registerHelper('make_message', function(act) {
 });
 
 Handlebars.registerHelper('frequency', function() {
-  var html = ''
-  for (var i = 1; i < 60; i++) {
+  var html = '<option value="1" selected>1</option>';
+  for (var i = 2; i < 60; i++) {
     html += '<option value="' + i.toString() + '">' + i.toString() + '</option>';
   }
   return html;
