@@ -48,7 +48,7 @@
       <div class="chat-wrapper">
         <script id="chat-template" type="text/x-handlebars-template">
           {{#each this}}
-          <div class="channel {{this.slug}} hidden">
+          <div class="channel {{this.slug}} hidden" data-channel="{{this.name}}">
             <header>{{this.name}}</header>
             <div class="chat">
               {{#each this.activity}}
@@ -79,7 +79,7 @@
                 <div class="btn-group">
                   <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{this}}</button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" class="report" data-user="{{this}}">Report user</a></li>
+                    <li><a href="#" class="report" data-nick="{{this}}">Report user</a></li>
                   </ul>
                 </div>
               </li>
@@ -158,42 +158,76 @@
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                   </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-inline">
+                <label for="frequency">Repeat every</label>
+                <select class="frequency-value form-control" id="frequency">
+                  <script id="frequency-template" type="text/x-handlebars-template">
+                    {{{frequency}}}
+                  </script>
+                </select>
+                <select class="frequency-interval form-control">
+                  <option value="seconds">seconds</option>
+                  <option value="minutes">minutes</option>
+                  <option value="hours" selected>hours</option>
+                  <option value="days">days</option>
+                  <option value="weeks">weeks</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-primary preview right" type="button" disabled="disabled">Preview</button>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12 form-inline">
-              <label for="frequency">Repeat every</label>
-              <select class="frequency-value form-control" id="frequency">
-                <script id="frequency-template" type="text/x-handlebars-template">
-                  {{{frequency}}}
-                </script>
-              </select>
-              <select class="frequency-interval form-control">
-                <option value="seconds">seconds</option>
-                <option value="minutes">minutes</option>
-                <option value="hours" selected>hours</option>
-                <option value="days">days</option>
-                <option value="weeks">weeks</option>
-              </select>
+          <div class="modal-body preview hidden">
+            <div class="row">
+              <div class="col-md-12">
+                <p>"<span class="message-body"></span>" will be repeated every <span class="freq-value"></span> <span class="freq-interval"></span> from <span class="start"></span> to <span class="end"></span>.</p>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <button class="btn btn-primary preview right" type="button" disabled="disabled">Preview</button>
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-default back" type="button">Back</button>
+                <button class="btn btn-primary schedule right" type="button">Schedule</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="modal-body preview hidden">
-          <div class="row">
-            <div class="col-md-12">
-              <p>"<span class="message-body"></span>" will be repeated every <span class="freq-value"></span> <span class="freq-interval"></span> from <span class="start"></span> to <span class="end"></span>.</p>
+      </div>
+    </div>
+
+    <!-- Report user modal -->
+    <div class="report-user modal fade" id="report-user-modal" tabindex="-1" role="dialog" aria-labelledby="report-header" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <h4 class="modal-title" id="report-header">Report <span class="nick"></span></h4>
+          </div>
+          <div class="modal-body report">
+            <div class="row">
+              <div class="col-md-12">
+                <p>The moderators of <span class="active-channel"></span> will be notified about <span class="nick"></span>.</p>
+                <p class="timestamp"></p>
+                <div class="form-group">
+                  <label for="report-comments">Additional comments:</label>
+                  <textarea class="form-control" id="report-comments" rows="4" placeholder="(optional)"></textarea>
+                </div>
+                <button class="btn btn-danger report right" type="button">Report</button>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <button class="btn btn-default back" type="button">Back</button>
-              <button class="btn btn-primary schedule right" type="button">Schedule</button>
+          <div class="modal-body confirm hidden">
+            <div class="row">
+              <div class="col-md-12">
+                <p>The moderators of <span class="active-channel"></span> have been notified about <span class="nick"></span>.</p>
+                <button class="btn btn-primary okay right" type="button">Okay</button>
+              </div>
             </div>
           </div>
         </div>

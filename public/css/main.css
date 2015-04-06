@@ -237,7 +237,8 @@ section.users-column {
 
 .modal.schedule select.frequency-value {
   margin-left: 5px; }
-.modal.schedule button.right {
+
+button.right {
   float: right; }
 
 /*# sourceMappingURL=main.css.map */

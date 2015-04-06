@@ -28,7 +28,32 @@ $(function() {
 
       var users_html = users_template(chat_data);
       $("section.users-column ul").append(users_html);
-      $("div.users." + chat_data[0].slug).removeClass("hidden");  
+      $("div.users." + chat_data[0].slug).removeClass("hidden");
+
+      $(".users a.report").click( function(e) {
+        var user = $(e.target).data("nick");
+        var channel = $("div.channel:not(.hidden)").data("channel");
+        var now = moment();
+
+        $(".modal.report-user .nick").text(user);
+        $(".modal.report-user .active-channel").text(channel);
+        $(".modal.report-user .timestamp").html('Time: <time datetime="' + now + 
+          '">' + now.format("HH:mm [on] MMMM D, YYYY") + '</time>');
+        $("#report-user-modal").modal();
+      });
+
+      $(".modal.report-user button.report").click( function(e) {
+        $(".modal.report-user .modal-body.report").addClass("hidden");
+        $(".modal.report-user .modal-body.confirm").removeClass("hidden");
+      });
+
+      $(".modal.report-user button.okay").click( function(e) {
+        $("#report-user-modal").on('hidden.bs.modal', function() {
+          $(".modal.report-user .modal-body.report").removeClass("hidden");
+          $(".modal.report-user .modal-body.confirm").addClass("hidden");
+          $(".modal.report-user #report-comments").val("");
+        }).modal("hide");
+      });
 
       $("a.channel-link").click( function(e) {
         var target_channel = $(e.target).data('channel');
@@ -196,7 +221,7 @@ $(function() {
       var now = moment();
       $("div.channel:not(.hidden) div.chat").append('<div class="message scheduled">' +
         '<span class="from"><time datetime="' + now + '">' + now.format("HH:mm") +
-        '</span><span class="text">' + message + '</span></div>');
+        '</time></span><span class="text">' + message + '</span></div>');
     }).modal('hide');
   });
 
