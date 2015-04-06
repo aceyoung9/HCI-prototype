@@ -86,16 +86,25 @@ main.chat-column {
         background-color: lighten($lightGrey, 30%);
       }
 
-      &.action .text {
-        font-style: italic;
-        color: darken($actionText, 10%);
-        background-color: lighten($accentAqua, 30%);
-        text-align: center;
-        vertical-align: middle;
+      &.action, &.scheduled {
+        .from, .text {
+          background-color: lighten($accentAqua, 30%);
+          vertical-align: middle;
+        }
 
-        &:hover {
+       .text {
+          font-style: italic;
+          color: darken($actionText, 10%);
+          text-align: center;
+        }
+
+        &:hover .from, &:hover .text {
           background-color: inherit;
         }
+      }
+
+      &.scheduled span.from time {
+        display: inline;
       }
 
       span.from {

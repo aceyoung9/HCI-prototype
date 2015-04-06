@@ -163,8 +163,7 @@ $(function() {
     var freq_interval = $(".frequency-interval").val();
 
     // Escape the message
-    var safe_template = Handlebars.compile("{{this}}");
-    var safe_message = safe_template(message);
+    var safe_message = escape_message(message)
     $(".modal.schedule span.message-body").html(message);
     $(".modal.schedule span.freq-value").html(freq_val);
     $(".modal.schedule span.freq-interval").html(freq_interval);
@@ -181,6 +180,7 @@ $(function() {
   });
 
   $(".modal.schedule button.schedule").click( function(e) {
+    var message = escape_message($("#message-input").val());
     $("#schedule-modal").on('hidden.bs.modal', function() {
       // Reset modal after it's fully closed
       $("#message-input").val("");
@@ -192,8 +192,19 @@ $(function() {
       $(".modal.schedule .modal-body.entry").removeClass("hidden");
       $(".modal.schedule .modal-body.preview").addClass("hidden");
       $("#schedule-modal").off();
+
+      var now = moment();
+      $("div.channel:not(.hidden) div.chat").append('<div class="message scheduled">' +
+        '<span class="from"><time datetime="' + now + '">' + now.format("HH:mm") +
+        '</span><span class="text">' + message + '</span></div>');
     }).modal('hide');
   });
+
+  function escape_message(msg) {
+    var safe_template = Handlebars.compile("{{this}}");
+    var safe_message = safe_template(msg);
+    return safe_message;
+  }
 
   function send_message() {
     var $active_channel = $("div.channel:not(.hidden) div.chat");
