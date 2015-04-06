@@ -320,7 +320,11 @@ section.users-column {
 }
 
 .modal.schedule {
-  .modal-content {
-    height: 500px;
+  select.frequency-value {
+    margin-left: 5px;
+  }
+
+  button {
+    float: right;
   }
 }

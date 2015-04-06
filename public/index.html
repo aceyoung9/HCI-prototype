@@ -137,7 +137,7 @@
             </div>
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="date-start">Start date and time</label>
+                <label for="date-start">Start date and time:</label>
                 <div class="input-group date" id="datetimepicker-start">
                   <input type="text" id="date-start" class="form-control" />
                   <span class="input-group-addon">
@@ -153,6 +153,28 @@
                     <span class="glyphicon glyphicon-calendar"></span>
                   </span>
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-inline">
+              <label for="frequency">Repeat every</label>
+              <select class="frequency-value form-control" id="frequency">
+                <script id="frequency-template" type="text/x-handlebars-template">
+                  {{{frequency}}}
+                </script>
+              </select>
+              <select class="frequency-interval form-control">
+                <option value="sec">seconds</option>
+                <option value="min">minutes</option>
+                <option value="hour">hours</option>
+                <option value="day">days</option>
+                <option value="week">weeks</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="button">Preview</button>
             </div>
           </div>
         </div>

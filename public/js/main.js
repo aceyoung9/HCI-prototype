@@ -3,12 +3,14 @@ $(function() {
   var users_source = $("#users-template").html();
   var chat_source = $("#chat-template").html();
   var input_source = $("#input-template").html();
+  var frequency_source = $("#frequency-template").html();
   
   var channels_template = Handlebars.compile(channels_source);
   var users_template = Handlebars.compile(users_source);
   var chat_template = Handlebars.compile(chat_source);
   var message_template = Handlebars.compile("{{{make_message this}}}");
   var input_template = Handlebars.compile(input_source);
+  var frequency_template = Handlebars.compile(frequency_source);
 
   var channels_promise = $.getJSON('http://localhost:4730/channels');
   var input_promise = $.getJSON('http://localhost:4730/user');
@@ -120,6 +122,9 @@ $(function() {
     });
   });
 
+  var frequency_html = frequency_template();
+  $("select.frequency-value").append(frequency_html);
+
   /* Initialize tooltips */
   $('[data-toggle="tooltip"]').tooltip();
 
@@ -140,6 +145,9 @@ $(function() {
   $("#datetimepicker-end").on("dp.change", function(e) {
     $("#datetimepicker-start").data("DateTimePicker").maxDate(e.date);
   });
+
+  /* Initialize frequency option */
+  $("")
 
   function send_message() {
     var $input = $("input.chat-input");
@@ -189,5 +197,13 @@ Handlebars.registerHelper('make_message', function(act) {
   var html = '<div class="' + message_classes + '"><span class="from"><a href="">' +
   act.user + '</a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") +
   '</time></span><span class="text">' + message + '</span></div>'
+  return html;
+});
+
+Handlebars.registerHelper('frequency', function() {
+  var html = ''
+  for (var i = 1; i < 60; i++) {
+    html += '<option value="' + i.toString() + '">' + i.toString() + '</option>';
+  }
   return html;
 });
