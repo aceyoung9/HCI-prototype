@@ -22,19 +22,58 @@ $(function() {
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
       $("div.chat-wrapper").append(chat_html);
-      $("div.channel." + chat_data[0].slug).removeClass("hidden").addClass('visible');    
+      $("div.channel." + chat_data[0].slug).removeClass("hidden");   
 
       var users_html = users_template(chat_data);
       $("section.users-column ul").append(users_html);
-      $("div.users." + chat_data[0].slug).removeClass("hidden").addClass('visible');  
+      $("div.users." + chat_data[0].slug).removeClass("hidden");  
 
       $("a.channel-link").click( function(e) {
         var target_channel = $(e.target).data('channel');
-        $("div.channel").removeClass("visible").addClass("hidden");
-        $("div.channel." + target_channel).removeClass("hidden").addClass("visible");
-        $("div.users").removeClass("visible").addClass("hidden");
-        $("div.users." + target_channel).removeClass("hidden").addClass("visible");
+        $("div.channel").addClass("hidden");
+        $("div.channel." + target_channel).removeClass("hidden");
+        $("div.users").addClass("hidden");
+        $("div.users." + target_channel).removeClass("hidden");
       });
+
+      $(".add-channel input").keyup(function (e) {
+        var val = $(e.target).val();
+        var stripped = val.replace(/\s+/g, '');
+        $(".add-channel li.list-group-item").addClass("hidden");
+
+        if (stripped == '' || stripped == '#') {
+          // Show default channels
+          $(".add-channel li.list-group-item.top-channel").removeClass("hidden");
+        }
+        else if (stripped == '##') {
+          // Show channels starting with two hashes
+          $(".add-channel li.list-group-item.two-hash").removeClass("hidden");
+        }
+        else if ("greekhistory".indexOf(stripped) == 0) {
+          // Show ##greek and #history
+          $(".add-channel li.list-group-item.greek, .add-channel li.list-group-item.history").removeClass("hidden");
+        }
+        else if ("#history".indexOf(stripped) == 0 || "history".indexOf(stripped) == 0) {
+          // Show #history
+          $(".add-channel li.list-group-item.history").removeClass("hidden");
+        }
+        else if ("##greek".indexOf(stripped) == 0) {
+          // Show ##greek
+          $(".add-channel li.list-group-item.greek").removeClass("hidden");
+        }
+        else if ("#ubuntu".indexOf(stripped) == 0 || "ubuntu".indexOf(stripped) == 0) {
+          // Show #ubuntu. They shouldn't be searching for this, but might as well make it full-featured...
+          $(".add-channel li.list-group-item.ubuntu").removeClass("hidden");
+        }
+        else if ("##feminism".indexOf(stripped) == 0 || "feminism".indexOf(stripped) == 0) {
+          // Show ##feminism. They shouldn't be searching for this, but might as well make it full-featured...
+          $(".add-channel li.list-group-item.feminism").removeClass("hidden");
+        }
+        else {
+          // Show error and help prompt
+          $(".add-channel li.list-group-item.cant-find").removeClass("hidden");
+        }
+      })
     });
   });
 
