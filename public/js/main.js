@@ -236,18 +236,20 @@ $(function() {
     var $chat_wrapper = $(".chat-wrapper");
     var $input = $("input.chat-input");
     var message = $input.val();
-    var activity = {
-      user: $("label.nick").text(),
-      timestamp: moment(),
-      type: "message",
-      content: message
-    };
-    var html = message_template(activity);
-    $active_channel.append(html);
+    if (message !== '') {
+      var activity = {
+        user: $("label.nick").text(),
+        timestamp: moment(),
+        type: "message",
+        content: message
+      };
+      var html = message_template(activity);
+      $active_channel.append(html);
 
-    $chat_wrapper.animate({scrollTop: $chat_wrapper[0].scrollHeight}, 500);
-    console.log($active_channel[0].scrollHeight);
-    $input.val("");
+      $chat_wrapper.animate({scrollTop: $chat_wrapper[0].scrollHeight}, 500);
+      console.log($active_channel[0].scrollHeight);
+      $input.val("");
+    }
   }
 
   function unimplemented() {

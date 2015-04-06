@@ -23,7 +23,7 @@ header {
 .hidden {
   display: none; }
 
-.btn:focus, .btn:active:focus {
+button, .btn:focus, .btn:active:focus {
   outline: none; }
 
 /* Sections */
@@ -120,7 +120,7 @@ main.chat-column {
         box-sizing: border-box;
         height: 100%;
         width: 100%;
-        padding: 0 20px 0 90px; }
+        padding: 0 20px 0 100px; }
     main.chat-column section.input-bar button {
       position: absolute;
       top: 1px;
