@@ -88,7 +88,7 @@ main.chat-column {
 
       &.action, &.scheduled {
         .from, .text {
-          background-color: lighten($accentAqua, 30%);
+          background-color: lighten($accentAqua, 33%);
           vertical-align: middle;
         }
 
@@ -286,14 +286,28 @@ section.users-column {
     color: $accentMuteBlue;
   }
 
-  ul {
+  ul.user-list {
     padding: 10px 0 0 0;
 
-    li {
-      padding: 0 10px;
+    .btn-group {
+      width: 100%;
 
-      a {
+      button {
+        display: block;
+        text-align: right;
         color: $accent;
+        width: 100%;
+        padding: 0 30px 0 10px;
+
+        &:hover:after {
+          content: "\e259";
+          font-family: "Glyphicons Halflings";
+          font-size: 70%;
+          color: $accent;
+          float: right;
+          margin-right: -15px;
+          margin-top: 4px;
+        }
       }
     }
   }

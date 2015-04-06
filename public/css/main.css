@@ -59,7 +59,7 @@ main.chat-column {
       main.chat-column div.chat div.message:hover {
         background-color: #f6f6f6; }
       main.chat-column div.chat div.message.action .from, main.chat-column div.chat div.message.action .text, main.chat-column div.chat div.message.scheduled .from, main.chat-column div.chat div.message.scheduled .text {
-        background-color: #e6f2f4;
+        background-color: #f1f8f8;
         vertical-align: middle; }
       main.chat-column div.chat div.message.action .text, main.chat-column div.chat div.message.scheduled .text {
         font-style: italic;
@@ -200,12 +200,24 @@ section.users-column {
   section.users-column header {
     background-color: #dde9eb;
     color: #243B4A; }
-  section.users-column ul {
+  section.users-column ul.user-list {
     padding: 10px 0 0 0; }
-    section.users-column ul li {
-      padding: 0 10px; }
-      section.users-column ul li a {
-        color: #493655; }
+    section.users-column ul.user-list .btn-group {
+      width: 100%; }
+      section.users-column ul.user-list .btn-group button {
+        display: block;
+        text-align: right;
+        color: #493655;
+        width: 100%;
+        padding: 0 30px 0 10px; }
+        section.users-column ul.user-list .btn-group button:hover:after {
+          content: "\e259";
+          font-family: "Glyphicons Halflings";
+          font-size: 70%;
+          color: #493655;
+          float: right;
+          margin-right: -15px;
+          margin-top: 4px; }
 
 .modal.add-channel li.list-group-item {
   padding: 0;

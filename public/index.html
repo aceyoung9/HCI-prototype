@@ -70,12 +70,19 @@
       </section>
       <section class="users-column">
         <header>Users</header>
-        <ul>
+        <ul class="user-list">
         <script id="users-template" type="text/x-handlebars-template">
           {{#each this}}
             <div class="users {{this.slug}} hidden">
             {{#each this.users}}
-              <li><a href="">{{this}}</a></li>
+              <li>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{this}}</button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" class="report" data-user="{{this}}">Report user</a></li>
+                  </ul>
+                </div>
+              </li>
             {{/each}}
             </div>
           {{/each}}
