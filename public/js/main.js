@@ -124,6 +124,11 @@ $(function() {
   /* Initialize tooltips */
   $('[data-toggle="tooltip"]').tooltip();
 
+  /* Clear and focus modal on show */
+  $('#add-channel-modal').on('shown.bs.modal', function () {
+    $('#add-channel-modal input').val("").focus();
+  });
+
   function send_message() {
     var $input = $("input.chat-input");
     var message = $input.val();
