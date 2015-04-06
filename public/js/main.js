@@ -124,9 +124,12 @@ $(function() {
   /* Initialize tooltips */
   $('[data-toggle="tooltip"]').tooltip();
 
-  /* Clear and focus modal on show */
+  /* Make sure modal input is cleared and in focus */
+  $('#add-channel-modal').on('hidden.bs.modal', function () {
+    $('#add-channel-modal input').val("").keyup();
+  });
   $('#add-channel-modal').on('shown.bs.modal', function () {
-    $('#add-channel-modal input').val("").focus();
+    $('#add-channel-modal input').focus();
   });
 
   function send_message() {
