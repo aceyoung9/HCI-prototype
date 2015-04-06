@@ -95,9 +95,15 @@ main.chat-column {
         width: 100px;
         float: left;
         padding: 5px;
+        font-weight: 400;
 
         a, time {
           display: block;
+        }
+
+        time {
+          font-size: .85em;
+          line-height: 1.1em;
         }
       }
 
@@ -105,6 +111,8 @@ main.chat-column {
         display: table-cell;
         vertical-align: top;
         padding: 5px;
+        font-size: 1.1em;
+        line-height: 1.2em;
       }
     }
   }
