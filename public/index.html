@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <title>IRC++</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -42,7 +41,7 @@
       </ul>
     </section>
     <div class="new-channel-wrapper" data-toggle="tooltip" data-placement="top" title="Add a channel">
-      <button class="new-channel btn btn-default" data-toggle="modal" data-target="#add-channel-modal" type="button" title="Add a channel"><i class="fa fa-plus"></i></button>
+      <button class="new-channel btn btn-default" data-toggle="modal" data-target="#add-channel-modal" type="button" title="Add a channel"><span class="glyphicon glyphicon-plus"></span></button>
     </div>
 
     <main class="chat-column">
@@ -67,7 +66,7 @@
             <input type="text" id="chat-input" class="chat-input"/>
           </script>
         </div>
-        <button type="button" class="chat-send"><i class="fa fa-arrow-right"></i></button>
+        <button type="button" class="chat-send"><span class="glyphicon glyphicon-arrow-right"></span></button>
       </section>
       <section class="users-column">
         <header>Users</header>
@@ -90,7 +89,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
             <h4 class="modal-title" id="join-header">Join a channel</h4>
           </div>
           <div class="modal-body">
@@ -127,7 +126,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
             <h4 class="modal-title" id="schedule-header">Schedule a repeating message</h4>
           </div>
           <div class="modal-body entry">
