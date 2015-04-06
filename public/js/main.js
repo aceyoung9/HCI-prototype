@@ -22,11 +22,19 @@ $(function() {
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
       $("div.chat-wrapper").append(chat_html);
-      $("div.channel-" + chat_data[0].slug).removeClass("hidden").addClass('visible');    
+      $("div.channel." + chat_data[0].slug).removeClass("hidden").addClass('visible');    
 
       var users_html = users_template(chat_data);
       $("section.users-column ul").append(users_html);
-      $("div.users-" + chat_data[0].slug).removeClass("hidden").addClass('visible');  
+      $("div.users." + chat_data[0].slug).removeClass("hidden").addClass('visible');  
+
+      $("a.channel-link").click( function(e) {
+        var target_channel = $(e.target).data('channel');
+        $("div.channel").removeClass("visible").addClass("hidden");
+        $("div.channel." + target_channel).removeClass("hidden").addClass("visible");
+        $("div.users").removeClass("visible").addClass("hidden");
+        $("div.users." + target_channel).removeClass("hidden").addClass("visible");
+      });
     });
   });
 

@@ -207,13 +207,17 @@ section.channels-column {
     padding: 0;
 
     li {
-      padding: 5px 20px;
+      cursor: pointer;
 
       &:hover {
         background-color: darken($accent, 5%);
       }
 
       a {
+        box-sizing: border-box;
+        padding: 5px 20px;
+        display: block;
+        width: 100%;
         color: white;
       }
     }

@@ -21,7 +21,7 @@
       <ul>
         <script id="channels-template" type="text/x-handlebars-template">
           {{#each this}}
-            <li><a href="">{{this}}</a></li>
+            <li><a class="channel-link {{this.slug}}" data-channel="{{this.slug}}">{{this.name}}</a></li>
           {{/each}}
         </script>
       </ul>
@@ -32,7 +32,7 @@
       <div class="chat-wrapper">
         <script id="chat-template" type="text/x-handlebars-template">
           {{#each this}}
-          <div class="channel-{{this.slug}} hidden">
+          <div class="channel {{this.slug}} hidden">
             <header>{{this.name}}</header>
             <div class="chat">
               {{#each this.activity}}
@@ -57,7 +57,7 @@
         <ul>
         <script id="users-template" type="text/x-handlebars-template">
           {{#each this}}
-            <div class="users-{{this.slug}} hidden">
+            <div class="users {{this.slug}} hidden">
             {{#each this.users}}
               <li><a href="">{{this}}</a></li>
             {{/each}}

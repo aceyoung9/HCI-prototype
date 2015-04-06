@@ -10,7 +10,9 @@ app.get('/', function(req, res) {
 })
 
 app.get('/channels', function(req, res) {
-  res.json(_.pluck(data.channels, 'name'));
+  res.json(_.map(data.channels, function(chan) {
+    return _.pick(chan, 'name', 'slug');
+  }));
 });
 
 app.get('/user', function(req, res) {

@@ -142,10 +142,14 @@ section.channels-column {
   section.channels-column ul {
     padding: 0; }
     section.channels-column ul li {
-      padding: 5px 20px; }
+      cursor: pointer; }
       section.channels-column ul li:hover {
         background-color: #3c2c45; }
       section.channels-column ul li a {
+        box-sizing: border-box;
+        padding: 5px 20px;
+        display: block;
+        width: 100%;
         color: white; }
 
 button.new-channel {
