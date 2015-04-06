@@ -30,7 +30,7 @@ $(function() {
       $("section.users-column ul").append(users_html);
       $("div.users." + chat_data[0].slug).removeClass("hidden");
 
-      $(".users a.report").click( function(e) {
+      $(".users a.report, .channel a.report").click( function(e) {
         var user = $(e.target).data("nick");
         var channel = $("div.channel:not(.hidden)").data("channel");
         var now = moment();
@@ -283,10 +283,10 @@ Handlebars.registerHelper('make_message', function(act) {
     message = act.content;
   }
 
-  var html = '<div class="' + message_classes + '"><span class="from"><a href="#" ><div class="btn-group">' +
+  var html = '<div class="' + message_classes + '"><span class="from"><div class="btn-group">' +
     '<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">' + act.user + '</button>' +
     '<ul class="dropdown-menu" role="menu"><li><a href="#" class="report" data-nick="' + act.user + '">Report user</a></li>' +
-    '</ul></div></a><time datetime="' + act.timestamp + '">' + date.format("HH:mm") + '</time></span><span class="text">' + message + '</span></div>';
+    '</ul></div><time datetime="' + act.timestamp + '">' + date.format("HH:mm") + '</time></span><span class="text">' + message + '</span></div>';
   return html;
 });
 
