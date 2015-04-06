@@ -87,7 +87,15 @@ main.chat-column {
       }
 
       &.action .text {
-        color: $actionText;
+        font-style: italic;
+        color: darken($actionText, 10%);
+        background-color: lighten($accentAqua, 30%);
+        text-align: center;
+        vertical-align: middle;
+
+        &:hover {
+          background-color: inherit;
+        }
       }
 
       span.from {

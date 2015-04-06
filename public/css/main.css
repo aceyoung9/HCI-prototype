@@ -59,7 +59,13 @@ main.chat-column {
       main.chat-column div.chat div.message:hover {
         background-color: #f6f6f6; }
       main.chat-column div.chat div.message.action .text {
-        color: #666; }
+        font-style: italic;
+        color: #4d4d4d;
+        background-color: #e6f2f4;
+        text-align: center;
+        vertical-align: middle; }
+        main.chat-column div.chat div.message.action .text:hover {
+          background-color: inherit; }
       main.chat-column div.chat div.message span.from {
         display: table-cell;
         width: 100px;
