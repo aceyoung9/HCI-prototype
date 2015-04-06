@@ -11,9 +11,6 @@ html, body {
   line-height: 1.3em;
   background-color: #493655; }
 
-a {
-  text-decoration: none; }
-
 ul {
   list-style: none;
   padding: 0;
@@ -77,6 +74,10 @@ main.chat-column {
         main.chat-column div.chat div.message span.from time {
           font-size: .85em;
           line-height: 1.1em; }
+        main.chat-column div.chat div.message span.from a {
+          color: #715484; }
+          main.chat-column div.chat div.message span.from a:hover {
+            text-decoration: none; }
       main.chat-column div.chat div.message span.text {
         display: table-cell;
         vertical-align: top;
@@ -104,9 +105,9 @@ main.chat-column {
         position: absolute;
         top: 6px;
         left: 6px;
-        padding: 3px;
+        padding: 3px 7px;
         border-radius: 3px;
-        background-color: #dddddd; }
+        background-color: #d5eaeb; }
         main.chat-column section.input-bar div.input-wrapper label:after {
           content: ":"; }
       main.chat-column section.input-bar div.input-wrapper input {
@@ -162,6 +163,9 @@ section.channels-column {
         display: block;
         width: 100%;
         color: white; }
+        section.channels-column ul li a:hover {
+          text-decoration: none;
+          color: #e5f1f3; }
 
 div.new-channel-wrapper {
   position: absolute;
@@ -179,10 +183,11 @@ div.new-channel-wrapper {
     padding: 10px;
     color: #eee;
     border: 0;
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    border-radius: 0; }
     div.new-channel-wrapper button.new-channel:hover {
       cursor: pointer;
-      background-color: #41304c;
+      background-color: #668091;
       color: white; }
 
 section.users-column {

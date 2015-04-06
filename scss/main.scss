@@ -24,10 +24,6 @@ html, body {
   background-color: $accent;
 }
 
-a {
-  text-decoration: none;
-}
-
 ul {
   list-style: none;
   padding: 0;
@@ -113,6 +109,14 @@ main.chat-column {
           font-size: .85em;
           line-height: 1.1em;
         }
+
+        a {
+          color: lighten($accent, 15%);
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
 
       span.text {
@@ -148,9 +152,9 @@ main.chat-column {
         position: absolute;
         top: 6px;
         left: 6px;
-        padding: 3px;
+        padding: 3px 7px;
         border-radius: 3px;
-        background-color: lighten($lightGrey, 20%);
+        background-color: lighten($accentAqua, 25%);
 
         &:after {
           content: ":";
@@ -230,6 +234,10 @@ section.channels-column {
         display: block;
         width: 100%;
         color: white;
+        &:hover {
+          text-decoration: none;
+          color: mix(white, $accentAqua, 80%);
+        }
       }
     }
   }
@@ -253,10 +261,11 @@ div.new-channel-wrapper {
     color: $iconGrey;
     border: 0;
     font-size: 1.5em;
+    border-radius: 0;
 
     &:hover {
       cursor: pointer;
-      background-color: darken($accent, 3%);
+      background-color: mix($accent, $accentAqua, 45%);
       color: white;
     }
   }
