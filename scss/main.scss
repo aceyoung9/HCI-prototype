@@ -39,6 +39,10 @@ header {
   display: none;
 }
 
+.btn:focus, .btn:active:focus {
+  outline: none;
+}
+
 /* Sections */
 main.chat-column {
   display: block;
