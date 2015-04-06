@@ -249,7 +249,7 @@ button.new-channel {
     background-color: darken($accent, 5%);
     text-align: center;
     height: 50px;
-    padding: 12px;
+    padding: 10px;
     color: $iconGrey;
     border: 0;
     font-size: 1.5em;
@@ -257,6 +257,7 @@ button.new-channel {
     &:hover {
       cursor: pointer;
       background-color: darken($accent, 3%);
+      color: white;
     }
   }
 

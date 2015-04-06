@@ -53,6 +53,9 @@ $(function() {
     });
   });
 
+  /* Initialize tooltips */
+  $('[data-toggle="tooltip"]').tooltip();
+
   function send_message() {
     var $input = $("input.chat-input");
     var message = $input.val();

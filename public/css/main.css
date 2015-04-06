@@ -173,13 +173,14 @@ button.new-channel {
   background-color: #3c2c45;
   text-align: center;
   height: 50px;
-  padding: 12px;
+  padding: 10px;
   color: #eee;
   border: 0;
   font-size: 1.5em; }
   button.new-channel:hover {
     cursor: pointer;
-    background-color: #41304c; }
+    background-color: #41304c;
+    color: white; }
 
 section.users-column {
   position: absolute;
