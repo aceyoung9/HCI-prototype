@@ -130,7 +130,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
             <h4 class="modal-title" id="schedule-header">Schedule a repeating message</h4>
           </div>
-          <div class="modal-body">
+          <div class="modal-body entry">
             <div class="form-group">
               <label for="message-input">Message:</label>
               <textarea class="form-control" id="message-input" rows="4"></textarea>
@@ -164,17 +164,30 @@
                 </script>
               </select>
               <select class="frequency-interval form-control">
-                <option value="sec">seconds</option>
-                <option value="min">minutes</option>
-                <option value="hour" selected>hours</option>
-                <option value="day">days</option>
-                <option value="week">weeks</option>
+                <option value="seconds">seconds</option>
+                <option value="minutes">minutes</option>
+                <option value="hours" selected>hours</option>
+                <option value="days">days</option>
+                <option value="weeks">weeks</option>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <button class="btn btn-primary" type="button" disabled="disabled">Preview</button>
+              <button class="btn btn-primary preview right" type="button" disabled="disabled">Preview</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body preview hidden">
+          <div class="row">
+            <div class="col-md-12">
+              <p>"<span class="message-body"></span>" will be repeated every <span class="freq-value"></span> <span class="freq-interval"></span> from <span class="start"></span> to <span class="end"></span>.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-default back" type="button">Back</button>
+              <button class="btn btn-primary schedule right" type="button">Schedule</button>
             </div>
           </div>
         </div>

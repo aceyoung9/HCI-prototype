@@ -147,17 +147,53 @@ $(function() {
   });
 
   $(".modal.schedule .form-control").on('change dp.change keyup', function(e) {
-    $(".modal.schedule button").prop("disabled", false);
+    $(".modal.schedule button.preview").prop("disabled", false);
     $(".modal.schedule .form-control").each( function(e) {
       if ($(this).val() == "") {
-        $(".modal.schedule button").prop("disabled", true);
+        $(".modal.schedule button.preview").prop("disabled", true);
       }
     });
   });
 
-  $(".modal.schedule button").click( function(e) {
-    console.log("yo");
-  })
+  $(".modal.schedule button.preview").click( function(e) {
+    var message = $("#message-input").val();
+    var start = $("#datetimepicker-start").data("DateTimePicker").date();
+    var end = $("#datetimepicker-end").data("DateTimePicker").date();
+    var freq_val = $(".frequency-value").val();
+    var freq_interval = $(".frequency-interval").val();
+
+    // Escape the message
+    var safe_template = Handlebars.compile("{{this}}");
+    var safe_message = safe_template(message);
+    $(".modal.schedule span.message-body").html(message);
+    $(".modal.schedule span.freq-value").html(freq_val);
+    $(".modal.schedule span.freq-interval").html(freq_interval);
+    $(".modal.schedule span.start").html(moment(new Date(start)).format("MMMM D, YYYY [at] HH:mm"));
+    $(".modal.schedule span.end").html(moment(new Date(end)).format("MMMM D, YYYY [at] HH:mm"));
+
+    $(".modal-body.entry").addClass("hidden");
+    $(".modal-body.preview").removeClass("hidden");
+  });
+
+  $(".modal.schedule button.back").click( function(e) {
+    $(".modal-body.preview").addClass("hidden");
+    $(".modal-body.entry").removeClass("hidden");
+  });
+
+  $(".modal.schedule button.schedule").click( function(e) {
+    $("#schedule-modal").on('hidden.bs.modal', function() {
+      // Reset modal after it's fully closed
+      $("#message-input").val("");
+      $("#datetimepicker-start").data("DateTimePicker").date(moment());
+      $("#datetimepicker-end").data("DateTimePicker").date(moment().add(1, 'days'));
+      $(".frequency-value").val(1);
+      $(".frequency-interval").val("hours");
+      $("#message-input").change();
+      $(".modal.schedule .modal-body.entry").removeClass("hidden");
+      $(".modal.schedule .modal-body.preview").addClass("hidden");
+      $("#schedule-modal").off();
+    }).modal('hide');
+  });
 
   function send_message() {
     var $input = $("input.chat-input");
