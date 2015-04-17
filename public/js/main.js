@@ -24,7 +24,7 @@ $(function() {
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
       $("div.chat-wrapper").append(chat_html);
-      $("div.channel." + chat_data[0].slug).removeClass("hidden");   
+      $(".channel." + chat_data[0].slug).removeClass("hidden");   
 
       var users_html = users_template(chat_data);
       $("section.users-column ul").append(users_html);

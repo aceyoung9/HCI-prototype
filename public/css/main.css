@@ -44,8 +44,15 @@ main.chat-column {
     right: 200px;
     bottom: 50px;
     left: 0px;
-    overflow-y: auto;
     box-sizing: border-box; }
+    main.chat-column div.chat-wrapper .chat-scroll {
+      position: absolute;
+      top: 40px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      box-sizing: border-box;
+      overflow-y: auto; }
   main.chat-column div.chat {
     display: table;
     box-sizing: border-box;

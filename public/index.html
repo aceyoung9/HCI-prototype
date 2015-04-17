@@ -48,8 +48,8 @@
       <div class="chat-wrapper">
         <script id="chat-template" type="text/x-handlebars-template">
           {{#each this}}
-          <div class="channel {{this.slug}} hidden" data-channel="{{this.name}}">
-            <header>{{this.name}}</header>
+          <header class="channel {{this.slug}} hidden" data-channel="{{this.name}}">{{this.name}}</header>
+          <div class="chat-scroll channel {{this.slug}} hidden" data-channel="{{this.name}}">
             <div class="chat">
               {{#each this.activity}}
                 {{{make_message this}}}
