@@ -6,7 +6,11 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.sendfile("index.html");
+  res.sendfile("public/landing.html");
+});
+
+app.get('/chat', function(req, res) {
+  res.sendfile("public/chat.html");
 });
 
 app.get('/channels', function(req, res) {
