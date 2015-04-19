@@ -247,6 +247,10 @@ section.channels-column {
   }
 
   ul {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     padding: 0;
 
     li {
@@ -269,15 +273,30 @@ section.channels-column {
       }
     }
   }
+
+  &.a-test ul {
+    top: 40px;
+  }
+
+  &.b-test ul {
+    top: 90px;
+  }
 }
 
 div.new-channel-wrapper {
   position: absolute;
   display: block;
   box-sizing: border-box;
-  bottom: 0;
   width: 200px;
   height: 50px;
+
+  &.a-test {
+    bottom: 0;
+  }
+
+  &.b-test {
+    top: 80px;
+  }
 
   button.new-channel {
     width: 100%;
@@ -394,6 +413,7 @@ button.right {
 
     label {
       font-weight: lighter;
+      display: block;
     }
 
     button, button:focus {

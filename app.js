@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var g_nick = "test_user";
 var g_channels = ["##ccis", "#nuhacks"];
+var g_test = "a";
 
 app.get('/', function(req, res) {
   res.sendfile("public/landing.html");
@@ -58,6 +59,10 @@ app.get('/activity/all', function(req, res) {
   res.json(data.channels);
 });
 
+app.get('/test', function(req, res) {
+  res.json(g_test);
+});
+
 app.post('/chat', function(req, res) {
   var nick = req.body.nick;
   var channels = req.body.channels;
@@ -71,6 +76,7 @@ app.post('/chat', function(req, res) {
 
   g_nick = nick;
   g_channels = channels.split(", ");
+  g_test = req.body.abtest;
   res.sendfile("public/chat.html");
 });
 

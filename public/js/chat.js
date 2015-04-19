@@ -14,10 +14,18 @@ $(function() {
 
   var channels_promise = $.getJSON('http://localhost:4730/channels');
   var input_promise = $.getJSON('http://localhost:4730/user');
+  var test_promise = $.getJSON('http://localhost:4730/test');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
     $("section.channels-column ul").append(channels_html);
+
+    test_promise.done( function(test_data) {
+      if (test_data == "b") {
+        $(".channels-column").removeClass("a-test").addClass("b-test");
+        $(".new-channel-wrapper").removeClass("a-test").addClass("b-test");
+      }
+    })
 
     var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
     

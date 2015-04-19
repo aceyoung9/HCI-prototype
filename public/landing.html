@@ -19,6 +19,17 @@
           <label for="channel-input">Channels</label>
           <input type="text" name="channels" id="channel-input" class="form-control" value="##ccis, #nuhacks" />
         </div>
+        <div class="form-group ab-test">
+          <label for="ab-test-grp">Prototype version</label>
+          <div class="btn-group" data-toggle="buttons" id="ab-test-grp">
+            <label class="btn btn-default active">
+              <input type="radio" name="abtest" id="ab-test" value="a" checked> A
+            </label>
+            <label class="btn btn-default">
+              <input type="radio" name="abtest" id="ab-test" value="b"> B
+            </label>
+          </div>
+        </div>
         <div class="alert alert-danger hidden nick" role="alert"></div>
         <div class="alert alert-danger hidden channel" role="alert"></div>
         <button type="submit" class="btn btn-default">Connect</button>

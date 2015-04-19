@@ -171,6 +171,10 @@ section.channels-column {
     background-color: #644a74;
     color: #e0d7e6; }
   section.channels-column ul {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     padding: 0; }
     section.channels-column ul li {
       cursor: pointer; }
@@ -185,14 +189,21 @@ section.channels-column {
         section.channels-column ul li a:hover {
           text-decoration: none;
           color: #e5f1f3; }
+  section.channels-column.a-test ul {
+    top: 40px; }
+  section.channels-column.b-test ul {
+    top: 90px; }
 
 div.new-channel-wrapper {
   position: absolute;
   display: block;
   box-sizing: border-box;
-  bottom: 0;
   width: 200px;
   height: 50px; }
+  div.new-channel-wrapper.a-test {
+    bottom: 0; }
+  div.new-channel-wrapper.b-test {
+    top: 80px; }
   div.new-channel-wrapper button.new-channel {
     width: 100%;
     height: 100%;
@@ -271,7 +282,8 @@ button.right {
     .landing main header {
       padding: 0 0 15px 0; }
     .landing main label {
-      font-weight: lighter; }
+      font-weight: lighter;
+      display: block; }
     .landing main button, .landing main button:focus {
       width: 100%;
       background-color: #493655;
