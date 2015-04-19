@@ -14,10 +14,10 @@ $(function() {
 
   var channels_promise = $.getJSON('http://prototype.mollywhite.net/channels');
   var input_promise = $.getJSON('http://prototype.mollywhite.net/user');
-  var test_promise = $.getJSON('http://prototype.mollywhite.net/test');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
+    var test_promise = $.getJSON('http://prototype.mollywhite.net/test');
     $("section.channels-column ul").append(channels_html);
 
     test_promise.done( function(test_data) {
