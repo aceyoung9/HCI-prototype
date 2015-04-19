@@ -15,6 +15,9 @@ $actionText: #666;
 /* Base styles */
 
 html, body {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   font-family: "Lato", Helvetica, Arial, sans-serif;
@@ -375,4 +378,38 @@ section.users-column {
 
 button.right {
   float: right;
+}
+
+/* Landing page styles */
+.landing {
+  background-color: white;
+
+  main {
+    margin: 100px auto 0 auto;
+    width: 300px;
+
+    header {
+      padding: 0 0 15px 0;
+    }
+
+    label {
+      font-weight: lighter;
+    }
+
+    button, button:focus {
+      width: 100%;
+      background-color: $accent;
+      color: white;
+
+      &:hover {
+        background-color: lighten($accent, 10%);
+        color: white;
+      }
+    }
+
+    .alert code {
+      white-space: nowrap;
+    }
+  }
+
 }

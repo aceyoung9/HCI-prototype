@@ -3,12 +3,13 @@
   "description": "IRC interface prototype",
   "version": "0.0.0",
   "dependencies": {
+    "body-parser": "^1.12.3",
     "express": "3.x",
-    "underscore": "1.8.2",
-    "moment": "2.9.0" 
+    "moment": "2.9.0",
+    "underscore": "1.8.2"
   },
   "repository": {
-  	"type": "git",
-  	"url": "https://github.com/molly/HCI-prototype.git"
+    "type": "git",
+    "url": "https://github.com/molly/HCI-prototype.git"
   }
 }

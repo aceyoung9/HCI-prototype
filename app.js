@@ -1,25 +1,25 @@
 var express = require('express');
 var _ = require('underscore');
 var moment = require('moment');
+var bodyParser = require("body-parser");
 var app = express();
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+var g_nick = "test_user";
+var g_channels = ["##ccis", "#nuhacks"];
 
 app.get('/', function(req, res) {
   res.sendfile("public/landing.html");
 });
 
-app.get('/chat', function(req, res) {
-  res.sendfile("public/chat.html");
-});
-
 app.get('/channels', function(req, res) {
-  var joined = _.filter(data.channels, function(chan) {
-    return chan.joined;
+  var resp = _.map(g_channels, function (chan) {
+    return {name: chan, slug: chan.replace(/#/g, '')};
   })
-  res.json(_.map(joined, function(chan) {
-    return _.pick(chan, 'name', 'slug');
-  }));
+  res.json(resp);
 });
 
 app.get('/channel/:slug', function(req, res) {
@@ -34,20 +34,44 @@ app.get('/channel/:slug', function(req, res) {
 });
 
 app.get('/user', function(req, res) {
-  res.json(data.nick);
+  res.json(g_nick);
 })
 
-app.get('/users/:channel', function(req, res) {
-  var channel = _.findWhere(data.channels, {name: req.params.channel})
-  if (!channel) {
-    res.statusCode = 404;
-    return res.send('No channel "' + req.params.channel + '" found.')
-  }
-  res.json(channel.users);
+app.get('/activity/all', function(req, res) {
+  _.each(g_channels, function(chan) {
+    chan_data = _.find(data.channels, function(d) {
+      return d.name == chan;
+    });
+    if (!chan_data) {
+      data.channels.push({name: chan,
+        slug: chan.replace(/#/g, ''),
+        joined: true,
+        activity: [],
+        users: [g_nick]});
+    }
+    else {
+      chan_data.joined = true;
+      chan_data.users = _.union(chan_data.users, [g_nick]);
+      chan_data.users.sort();
+    }
+  });
+  res.json(data.channels);
 });
 
-app.get('/activity/all', function(req, res) {
-  res.json(data.channels);
+app.post('/chat', function(req, res) {
+  var nick = req.body.nick;
+  var channels = req.body.channels;
+  var num_regex = /\d/;
+  var chars_regex = /[^a-zA-Z0-9[\]`_\-^{}|]/;
+  var chan_regex = /^(#+\S+(,| )?)+$/;
+
+  if (nick.length > 16 || nick.length == 0 || num_regex.test(nick[0]) || chars_regex.test(nick) || !chan_regex.test(channels)) {
+    return false;
+  }
+
+  g_nick = nick;
+  g_channels = channels.split(", ");
+  res.sendfile("public/chat.html");
 });
 
 app.listen(process.env.PORT || 4730);

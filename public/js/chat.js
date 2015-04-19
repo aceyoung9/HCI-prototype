@@ -12,17 +12,18 @@ $(function() {
   var input_template = Handlebars.compile(input_source);
   var frequency_template = Handlebars.compile(frequency_source);
 
-  var channels_promise = $.getJSON('http://mollywhite.net:4730/channels');
-  var input_promise = $.getJSON('http://mollywhite.net:4730/user');
+  var channels_promise = $.getJSON('http://localhost:4730/channels');
+  var input_promise = $.getJSON('http://localhost:4730/user');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
     $("section.channels-column ul").append(channels_html);
 
-    var chat_promise = $.getJSON('http://mollywhite.net:4730/activity/all' );
+    var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
+      // console.log(chat_data);
       $("div.chat-wrapper").append(chat_html);
       $(".channel." + chat_data[0].slug).removeClass("hidden");   
 
@@ -57,8 +58,9 @@ $(function() {
 
       $("a.channel-link").click( function(e) {
         var target_channel = $(e.target).data('channel');
-        $("div.channel").addClass("hidden");
-        $("div.channel." + target_channel).removeClass("hidden");
+        console.log(target_channel);
+        $(".channel").addClass("hidden");
+        $(".channel." + target_channel).removeClass("hidden");
         $("div.users").addClass("hidden");
         $("div.users." + target_channel).removeClass("hidden");
       });
@@ -109,7 +111,7 @@ $(function() {
         }
         else {
           if ($("section.channels-column a.greek").length == 0) {
-            var greek_promise = $.getJSON('http://mollywhite.net:4730/channel/greek');
+            var greek_promise = $.getJSON('http://localhost:4730/channel/greek');
             greek_promise.done( function(greek_data) {
               var $greek = $('<li><a class="channel-link ' +
                 greek_data.slug + '" data-channel="' + greek_data.slug + 
@@ -247,7 +249,6 @@ $(function() {
       $active_channel.append(html);
 
       $chat_wrapper.animate({scrollTop: $chat_wrapper[0].scrollHeight}, 500);
-      console.log($active_channel[0].scrollHeight);
       $input.val("");
     }
   }
