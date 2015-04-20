@@ -33,7 +33,8 @@ $(function() {
       var chat_html = chat_template(chat_data);
       // console.log(chat_data);
       $("div.chat-wrapper").append(chat_html);
-      $(".channel." + chat_data[0].slug).removeClass("hidden");   
+      $(".channel." + chat_data[0].slug).removeClass("hidden");
+      $(".channel-link." + chat_data[0].slug).parent().addClass("channel-present");
 
       var users_html = users_template(chat_data);
       $("section.users-column ul").append(users_html);

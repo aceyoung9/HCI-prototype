@@ -260,6 +260,10 @@ section.channels-column {
         background-color: darken($accent, 5%);
       }
 
+      &.channel-present {
+        background-color: darken($accent, 3%);
+      }
+
       a {
         box-sizing: border-box;
         padding: 5px 20px;

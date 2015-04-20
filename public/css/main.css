@@ -180,6 +180,8 @@ section.channels-column {
       cursor: pointer; }
       section.channels-column ul li:hover {
         background-color: #3c2c45; }
+      section.channels-column ul li.channel-present {
+        background-color: #41304c; }
       section.channels-column ul li a {
         box-sizing: border-box;
         padding: 5px 20px;
