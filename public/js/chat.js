@@ -12,12 +12,12 @@ $(function() {
   var input_template = Handlebars.compile(input_source);
   var frequency_template = Handlebars.compile(frequency_source);
 
-  var channels_promise = $.getJSON('http://localhost:4730/channels');
-  var input_promise = $.getJSON('http://localhost:4730/user');
-  var test_promise = $.getJSON('http://localhost:4730/test');
+  var channels_promise = $.getJSON('http://prototype.mollywhite.net/channels');
+  var input_promise = $.getJSON('http://prototype.mollywhite.net/user');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
+    var test_promise = $.getJSON('http://prototype.mollywhite.net/test');
     $("section.channels-column ul").append(channels_html);
 
     test_promise.done( function(test_data) {
