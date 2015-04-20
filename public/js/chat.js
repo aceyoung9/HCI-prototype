@@ -12,12 +12,12 @@ $(function() {
   var input_template = Handlebars.compile(input_source);
   var frequency_template = Handlebars.compile(frequency_source);
 
-  var channels_promise = $.getJSON('http://localhost:4730/channels');
-  var input_promise = $.getJSON('http://localhost:4730/user');
+  var channels_promise = $.getJSON('http://prototype.mollywhite.net/channels');
+  var input_promise = $.getJSON('http://prototype.mollywhite.net/user');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
-    var test_promise = $.getJSON('http://localhost:4730/test');
+    var test_promise = $.getJSON('http://prototype.mollywhite.net/test');
     $("section.channels-column ul").append(channels_html);
 
     test_promise.done( function(test_data) {
@@ -27,7 +27,7 @@ $(function() {
       }
     })
 
-    var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
+    var chat_promise = $.getJSON('http://prototype.mollywhite.net/activity/all' );
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
@@ -117,7 +117,7 @@ $(function() {
         }
         else {
           if ($("section.channels-column a.greekhistory").length == 0) {
-            var greek_promise = $.getJSON('http://localhost:4730/channel/greekhistory');
+            var greek_promise = $.getJSON('http://prototype.mollywhite.net/channel/greekhistory');
             greek_promise.done( function(greek_data) {
               var $greek = $('<li><a class="channel-link ' +
                 greek_data.slug + '" data-channel="' + greek_data.slug + 
