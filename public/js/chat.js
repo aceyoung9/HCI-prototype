@@ -67,7 +67,8 @@ $(function() {
 
       $("a.channel-link").click( function(e) {
         var target_channel = $(e.target).data('channel');
-        console.log(target_channel);
+        $("a.channel-link").parent().removeClass("channel-present")
+        $("a.channel-link." + target_channel).parent().addClass("channel-present");
         $(".channel").addClass("hidden");
         $(".channel." + target_channel).removeClass("hidden");
         $("div.users").addClass("hidden");
