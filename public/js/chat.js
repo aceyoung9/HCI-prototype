@@ -27,7 +27,7 @@ $(function() {
       }
     })
 
-    var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
+    var chat_promise = $.getJSON('http://prototype.mollywhite.net/activity/all' );
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
@@ -120,7 +120,7 @@ $(function() {
         }
         else {
           if ($("section.channels-column a.greek").length == 0) {
-            var greek_promise = $.getJSON('http://localhost:4730/channel/greek');
+            var greek_promise = $.getJSON('http://prototype.mollywhite.net/channel/greek');
             greek_promise.done( function(greek_data) {
               var $greek = $('<li><a class="channel-link ' +
                 greek_data.slug + '" data-channel="' + greek_data.slug + 
