@@ -185,8 +185,8 @@ var data = {
     ]
   },
   {
-    name: "##greek",
-    slug: "greek",
+    name: "##greekhistory",
+    slug: "greekhistory",
     joined: false,
     users: ["adipisicing", "brooklyn", "cronut", "magna", "next_level", "synth"],
     activity: [

@@ -12,12 +12,12 @@ $(function() {
   var input_template = Handlebars.compile(input_source);
   var frequency_template = Handlebars.compile(frequency_source);
 
-  var channels_promise = $.getJSON('http://prototype.mollywhite.net/channels');
-  var input_promise = $.getJSON('http://prototype.mollywhite.net/user');
+  var channels_promise = $.getJSON('http://localhost:4730/channels');
+  var input_promise = $.getJSON('http://localhost:4730/user');
 
   channels_promise.done( function(channel_data) {
     var channels_html = channels_template(channel_data);
-    var test_promise = $.getJSON('http://prototype.mollywhite.net/test');
+    var test_promise = $.getJSON('http://localhost:4730/test');
     $("section.channels-column ul").append(channels_html);
 
     test_promise.done( function(test_data) {
@@ -27,7 +27,7 @@ $(function() {
       }
     })
 
-    var chat_promise = $.getJSON('http://prototype.mollywhite.net/activity/all' );
+    var chat_promise = $.getJSON('http://localhost:4730/activity/all' );
     
     chat_promise.done( function(chat_data) {
       var chat_html = chat_template(chat_data);
@@ -88,23 +88,19 @@ $(function() {
           // Show channels starting with two hashes
           $(".add-channel li.list-group-item.two-hash").removeClass("hidden");
         }
-        else if ("greekhistory".indexOf(stripped) == 0) {
-          // Show ##greek and ##history
-          $(".add-channel li.list-group-item.greek, .add-channel li.list-group-item.history").removeClass("hidden");
-        }
-        else if ("##history".indexOf(stripped) == 0 || "history".indexOf(stripped) == 0) {
+        else if ("##history".indexOf(stripped) == 0 || "#history".indexOf(stripped) == 0 || "history".indexOf(stripped) == 0) {
           // Show #history
           $(".add-channel li.list-group-item.history").removeClass("hidden");
         }
-        else if ("##greek".indexOf(stripped) == 0) {
-          // Show ##greek
-          $(".add-channel li.list-group-item.greek").removeClass("hidden");
+        else if ("##greekhistory".indexOf(stripped) == 0 || "#greekhistory".indexOf(stripped) == 0 || "greekhistory".indexOf(stripped) == 0) {
+          // Show ##greekhistory
+          $(".add-channel li.list-group-item.greekhistory").removeClass("hidden");
         }
         else if ("#ubuntu".indexOf(stripped) == 0 || "ubuntu".indexOf(stripped) == 0) {
           // Show #ubuntu. They shouldn't be searching for this, but might as well make it full-featured...
           $(".add-channel li.list-group-item.ubuntu").removeClass("hidden");
         }
-        else if ("##feminism".indexOf(stripped) == 0 || "feminism".indexOf(stripped) == 0) {
+        else if ("##feminism".indexOf(stripped) == 0 || "#feminism".indexOf(stripped) == 0 || "feminism".indexOf(stripped) == 0) {
           // Show ##feminism. They shouldn't be searching for this, but might as well make it full-featured...
           $(".add-channel li.list-group-item.feminism").removeClass("hidden");
         }
@@ -115,13 +111,13 @@ $(function() {
       });
 
       $(".add-channel li.list-group-item").click( function(e) {
-        var is_greek = $(e.currentTarget).hasClass("greek");
+        var is_greek = $(e.currentTarget).hasClass("greekhistory");
         if (!is_greek) {
           unimplemented();
         }
         else {
-          if ($("section.channels-column a.greek").length == 0) {
-            var greek_promise = $.getJSON('http://prototype.mollywhite.net/channel/greek');
+          if ($("section.channels-column a.greekhistory").length == 0) {
+            var greek_promise = $.getJSON('http://localhost:4730/channel/greekhistory');
             greek_promise.done( function(greek_data) {
               var $greek = $('<li><a class="channel-link ' +
                 greek_data.slug + '" data-channel="' + greek_data.slug + 
@@ -136,9 +132,9 @@ $(function() {
               $("section.channels-column ul").append($greek);
             });
             $(".channel").addClass("hidden");
-            $(".channel.greek").removeClass("hidden");
+            $(".channel.greekhistory").removeClass("hidden");
             $(".users").addClass("hidden");
-            $(".users.greek").removeClass("hidden");
+            $(".users.greekhistory").removeClass("hidden");
           }
         }
       });
