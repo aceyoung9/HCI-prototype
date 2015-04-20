@@ -270,6 +270,11 @@ section.users-column {
 .modal.schedule select.frequency-value {
   margin-left: 5px; }
 
+.ab-test-alert {
+  position: absolute;
+  top: 100px;
+  left: 300px; }
+
 button.right {
   float: right; }
 
